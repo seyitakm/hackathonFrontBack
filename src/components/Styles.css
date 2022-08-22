@@ -1,0 +1,26 @@
+.covid19 {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 251, 253);
+}
+.covid19_width {
+  width: 50%;
+}
+.covid19__care {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.covid19__care a {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: rgb(123, 171, 219);
+  font-weight: 600;
+}
+.covid19__care a:hover {
+  color: rgb(84, 121, 159);
+}
