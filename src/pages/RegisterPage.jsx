@@ -13,6 +13,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth } from "../contexts/AuthContextProvider";
+import { Alert } from "@mui/material";
+import { NavLink, Route, useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -36,17 +38,31 @@ const theme = createTheme();
 
 export default function RegisterPage() {
   const { register, error, setError } = useAuth();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
 
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [passwordConfirm, setPasswordConfirm] = React.useState("");
+
+  function handleSave() {
+    if (!email.trim() || !password.trim() || !passwordConfirm.trim()) {
+      alert("Зполните все поля!");
+      return;
+    }
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("password_confirm", passwordConfirm);
+    register(formData);
+  }
+  console.log(email, password, passwordConfirm);
+  React.useEffect(() => {
+    setError(false);
+  }, []);
+
+  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
+      {error ? <Alert severity="error">{error}</Alert> : null}
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
@@ -81,12 +97,7 @@ export default function RegisterPage() {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
-            >
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -96,6 +107,8 @@ export default function RegisterPage() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
               <TextField
                 margin="normal"
@@ -106,18 +119,32 @@ export default function RegisterPage() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Confirm password"
+                type="password"
+                id="password-confirm"
+                autoComplete="current-password"
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                value={passwordConfirm}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSave}
               >
-                Sign In
+                Sign Up!
               </Button>
               <Grid container>
                 <Grid item xs>
@@ -126,9 +153,9 @@ export default function RegisterPage() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
+                  <NavLink to="/login" variant="body2">
+                    {"already have an account? Sign in!"}
+                  </NavLink>
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />

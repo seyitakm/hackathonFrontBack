@@ -12,6 +12,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAuth } from "../contexts/AuthContextProvider";
+import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -33,19 +36,26 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+export default function LoginPage() {
+  const { login, error, setError } = useAuth();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
+  function handleSave() {
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    login(formData, email);
+  }
+  React.useEffect(() => {
+    setError("");
+  }, []);
+
+  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
+        {error ? <Alert severity="error">{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
@@ -61,12 +71,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -76,6 +81,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <TextField
               margin="normal"
@@ -86,16 +93,19 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleSave}
             >
               Sign In
             </Button>
