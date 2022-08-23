@@ -28,7 +28,7 @@ const Footer = () => {
               <li>
                 <a href="#">Контакты</a>
               </li>
-              <li>
+              <li style={{ display: "flex" }}>
                 <a href="">
                   <img src={whatsapp_icon} alt="" />
                 </a>
@@ -77,6 +77,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <hr />
         <div className="footer-copyrigth">
           <p>Медицинский центр "Здоровье" © 2016-2022 Все права защищены</p>
         </div>

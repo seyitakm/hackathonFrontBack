@@ -1,15 +1,11 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
 
-
-
 const API = "https://makers-clinic.herokuapp.com/docs/";
-
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
