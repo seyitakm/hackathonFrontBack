@@ -1,5 +1,30 @@
 #navbar {
-  background-color: #02caf77c !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.navs {
+  color: black !important;
+}
+
+.navs:hover {
+  color: rgb(43, 129, 90) !important;
+  background-color: transparent !important;
+}
+
+.menu {
+  color: black !important;
+}
+
+.navs-search {
+  color: black !important;
+}
+
+.navs-search:hover {
+  color: rgb(43, 129, 90) !important;
+}
+
+.navs-search:focus {
+  color: rgb(43, 129, 90) !important;
 }
 
 .logo1 {
@@ -8,6 +33,10 @@
 
 .logo2 {
   height: 50px;
+}
+
+.nav-name {
+  color: black !important;
 }
 
 @media screen and (max-width: 900px) {

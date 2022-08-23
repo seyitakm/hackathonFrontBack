@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -5,7 +6,10 @@ import axios from "axios";
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
 
+
+
 const API = "https://makers-clinic.herokuapp.com/docs/";
+
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
@@ -24,7 +28,11 @@ const AuthContextProvider = ({ children }) => {
       setError(Object.values(error.response.data).flat(2)[0]);
     }
   };
-  return <authContext.Provider value={{}}>{children}</authContext.Provider>;
+  return (
+    <authContext.Provider value={{ register, error, user }}>
+      {children}
+    </authContext.Provider>
+  );
 };
 
 export default AuthContextProvider;

@@ -20,6 +20,8 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
+import { TextField } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -86,13 +88,14 @@ const Navbar = () => {
   }));
 
   return (
-    <AppBar id="navbar">
+    <AppBar position="realitive" id="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img className="logo1" src={logo} alt="logo" />
 
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
+            className="nav-name"
             variant="h6"
             noWrap
             component="a"
@@ -118,7 +121,7 @@ const Navbar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon className="menu" />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -139,25 +142,27 @@ const Navbar = () => {
               }}
             >
               {/* mobile */}
-              <MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/")}>
+                <HomeIcon />
                 <Typography textAlign="center">Home</Typography>
               </MenuItem>
-              <MenuItem onClick={() => navigate("/spec")}>
+              <MenuItem className="navs" onClick={() => navigate("/spec")}>
                 <Typography textAlign="center">Specialties</Typography>
               </MenuItem>
-              <MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/services")}>
+                <MedicalServicesOutlinedIcon />
                 <Typography textAlign="center">Services</Typography>
               </MenuItem>
-              <MenuItem>
-                <Typography textAlign="center">About Us</Typography>
-              </MenuItem>
-              <MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/contacts")}>
+                <PermContactCalendarOutlinedIcon />
                 <Typography textAlign="center">Contacts</Typography>
               </MenuItem>
-              <MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/schedule")}>
+                <CalendarMonthOutlinedIcon />
                 <Typography textAlign="center">Doctors Schedule</Typography>
               </MenuItem>
-              <MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
+                <EventNoteOutlinedIcon />
                 <Typography textAlign="center">Price list</Typography>
               </MenuItem>
             </Menu>
@@ -194,28 +199,36 @@ const Navbar = () => {
             }}
           >
             {/* pc */}
-            <MenuItem onClick={() => navigate("/spec")}>
+            <MenuItem className="navs" onClick={() => navigate("/spec")}>
               <Typography textAlign="center">Specialties</Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/services")}>
               <MedicalServicesOutlinedIcon />
               <Typography textAlign="center">Services</Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <PermContactCalendarOutlinedIcon />
               <Typography textAlign="center">Contacts</Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/schedule")}>
               <CalendarMonthOutlinedIcon />
               <Typography textAlign="center">Doctors Schedule</Typography>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
               <EventNoteOutlinedIcon />
               <Typography textAlign="center">Price list</Typography>
             </MenuItem>
           </Box>
 
-          <Search>
+          {/* <TextField
+            sx={{ m: 1 }}
+            color="success"
+            id="standard-basic"
+            label="Description"
+            name="Search"
+          /> */}
+
+          <Search className="navs-search">
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
