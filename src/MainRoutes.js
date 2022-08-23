@@ -19,7 +19,7 @@ const MainRoutes = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/add" element={<AddProduct />} />
-      <Route path="/*a" element={<NotFoundPage />} />
+      <Route path="/*" element={<NotFoundPage />} />
       <Route path="/about" element={<AboutUsPage />} />
       <Route path="/spec" element={<Specialties />} />
       <Route path="/services" element={<Services />} />
