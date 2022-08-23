@@ -1,0 +1,11 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #424242;
+  justify-content: center;
+}
+.footer-container {
+  display: flex;
+  width: 80%;
+}

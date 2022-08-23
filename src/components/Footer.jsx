@@ -1,67 +1,84 @@
 import React from "react";
+import "./Styles/Footer.css";
+import whatsapp_icon from "./icons/icons8-whatsapp-64.png";
+import telegram_icon from "./icons/icons8-telegram-app-64.png";
+import mail_icon from "./icons/icons8-mail-64.png";
+import facebook_icon from "./icons/icons8-facebook-64.png";
+import instagram_icon from "./icons/icons8-instagram-64.png";
 
 const Footer = () => {
   return (
     <div>
-      <footer class="section bg-footer">
-        <div class="container">
-          <div>
-            <h6 class="footer-heading text-uppercase text-white">
-              Informations
-            </h6>
-            <ul class="footer-link mt-4">
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="section1">
+            <ul id="footer-menu">
               <li>
-                <a href="#!">Sitemap</a>
+                <a href="#">Прайс лист</a>
               </li>
               <li>
-                <a href="#!">Our team</a>
+                <a href="#">Анализы</a>
               </li>
               <li>
-                <a href="#!">Terms of Services</a>
+                <a href="#">График работы</a>
+              </li>
+              <li>
+                <a href="#">Новости</a>
+              </li>
+              <li>
+                <a href="#">Контакты</a>
+              </li>
+              <li>
+                <a href="">
+                  <img src={whatsapp_icon} alt="" />
+                </a>
+                <a href="">
+                  <img src={telegram_icon} alt="" />
+                </a>
+                <a href="">
+                  <img src={mail_icon} alt="" />
+                </a>
               </li>
             </ul>
           </div>
-          <div>
-            <h6 class="footer-heading text-uppercase text-white">Help</h6>
-            <ul class="footer-link mt-4">
+          <div className="section2">
+            <p>
+              Внимание! Цены на сайте и в клинике могут различаться. Просьба
+              уточнять цены у администраторов клиники. Внимание! Оставить заявку
+              на прием, вопрос или предложение в мессенджерах Вы можете и в
+              нерабочее время. Мы обязательно свяжемся с Вами!
+            </p>
+          </div>
+          <div className="section3">
+            <ul id="footer-menu">
               <li>
-                <a href="#!">Register</a>
+                <p>720011, Бишкек, ул. Гоголя 133 (пер. ул. Фрунзе)</p>
               </li>
               <li>
-                <a href="#!">Sign in</a>
+                <a href="#">312 43-93-13</a>
               </li>
               <li>
-                <a href="#!">Privacy Policy</a>
+                <a href="#">706 43-93-13</a>
+              </li>
+              <li>
+                <a href="#">555 04-17-17</a>
+              </li>
+              <li>
+                <a href="#">megalab2009@yandex.com</a>
+              </li>
+              <li>
+                <a href="">
+                  <img src={facebook_icon} alt="" />
+                </a>
+                <a href="">
+                  <img src={instagram_icon} alt="" />
+                </a>
               </li>
             </ul>
-          </div>
-          <div class="footer-link">
-            <h6 class="footer-heading text-uppercase text-white">Contact us</h6>
-            <p class="contact-info mt-4">Need help ?</p>
-            <p class="contact-info">+XX XX-XX-XX-XX-XX</p>
-            <div>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                  <a href="#!">
-                    <i class="fab facebook footer-social-icon fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!">
-                    <i class="fab twitter footer-social-icon fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#!">
-                    <i class="fab instagram footer-social-icon fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
-        <div class="text-center mt-5">
-          <p class="footer-alt">2022 © Society, All Rights Reserved</p>
+        <div className="footer-copyrigth">
+          <p>Медицинский центр "Здоровье" © 2016-2022 Все права защищены</p>
         </div>
       </footer>
     </div>
