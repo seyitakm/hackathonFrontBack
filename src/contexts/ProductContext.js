@@ -32,7 +32,7 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const addProduct = async (newProduct) => {
-    await axios.post(`${JSON_API_PRODUCTS}`, newProduct);
+    await axios.post(`${JSON_API_PRODUCTS}doctor/`, newProduct);
     getProducts();
   };
 
