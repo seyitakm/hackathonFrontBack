@@ -11,7 +11,7 @@ function App() {
         <ProductContextProvider>
           <Navbar />
           <MainRoutes />
-          <Footer />
+          {/* <Footer /> */}
         </ProductContextProvider>
       </AuthContextProvider>
     </>
