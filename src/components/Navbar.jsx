@@ -10,14 +10,23 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-
-// const pages = ["Products", "Pricing", "Blog"];
+import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
+import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
+import logo from "./icons/logo.png";
+import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutlined";
+import { styled, alpha } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  //   const settings = ["Register", "Login", "Logout"];
+
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,11 +43,55 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
 
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(1),
+      width: "auto",
+    },
+  }));
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        width: "12ch",
+        "&:focus": {
+          width: "20ch",
+        },
+      },
+    },
+  }));
+
   return (
-    <AppBar id="navbar" zIndex="99px" position="fixed">
+    <AppBar id="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <img className="logo1" src={logo} alt="logo" />
+
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -54,9 +107,8 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            BishClinic+
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -87,15 +139,33 @@ const Navbar = () => {
               }}
             >
               {/* mobile */}
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
+              <MenuItem>
+                <Typography textAlign="center">Home</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navigate("/spec")}>
+                <Typography textAlign="center">Specialties</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Services</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">About Us</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Contacts</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Doctors Schedule</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Price list</Typography>
+              </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <img className="logo2" src={logo} alt="logo" />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
+            className="nav-name"
             variant="h5"
             noWrap
             component="a"
@@ -111,26 +181,51 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            BishClinic+
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: {
+                xs: "none",
+                md: "flex",
+              },
+            }}
+          >
             {/* pc */}
-            <Typography>Specialities</Typography>
-            <Typography></Typography>
-            <Typography>Specialities</Typography>
-            <Typography>Specialities</Typography>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))} */}
+            <MenuItem onClick={() => navigate("/spec")}>
+              <Typography textAlign="center">Specialties</Typography>
+            </MenuItem>
+            <MenuItem>
+              <MedicalServicesOutlinedIcon />
+              <Typography textAlign="center">Services</Typography>
+            </MenuItem>
+            <MenuItem>
+              <PermContactCalendarOutlinedIcon />
+              <Typography textAlign="center">Contacts</Typography>
+            </MenuItem>
+            <MenuItem>
+              <CalendarMonthOutlinedIcon />
+              <Typography textAlign="center">Doctors Schedule</Typography>
+            </MenuItem>
+            <MenuItem>
+              <EventNoteOutlinedIcon />
+              <Typography textAlign="center">Price list</Typography>
+            </MenuItem>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
+
+          <Box sx={{ flexGrow: 0, ml: 2 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -152,6 +247,9 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem onClick={() => navigate("/admin")}>
+                <Typography textAlign="center">Admin</Typography>
+              </MenuItem>
               {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
