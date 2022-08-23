@@ -1,0 +1,32 @@
+#navbar {
+  background-color: #02caf77c !important;
+}
+
+.logo1 {
+  height: 50px;
+}
+
+.logo2 {
+  height: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  .logo1 {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav-name {
+    display: none !important;
+  }
+  .logo2 {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .logo2 {
+    display: none !important;
+  }
+}
