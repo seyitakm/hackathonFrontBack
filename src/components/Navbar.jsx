@@ -8,24 +8,25 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import MenuItem from "@mui/material/MenuItem";
-import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
-import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
 import logo from "./icons/logo.png";
-import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutlined";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
-import { TextField } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
+
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const theme = createTheme({
+    palette: {
+      primary: { main: "#5049ac" },
+    },
+  });
   //   const settings = ["Register", "Login", "Logout"];
 
   const navigate = useNavigate();
@@ -143,26 +144,21 @@ const Navbar = () => {
             >
               {/* mobile */}
               <MenuItem className="navs" onClick={() => navigate("/")}>
-                <HomeIcon />
-                <Typography textAlign="center">Home</Typography>
+                <Typography textAlign="center">Главная</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
                 <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <MedicalServicesOutlinedIcon />
                 <Typography textAlign="center">Сервисы</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <PermContactCalendarOutlinedIcon />
                 <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <CalendarMonthOutlinedIcon />
                 <Typography textAlign="center">Расписание врачей</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <EventNoteOutlinedIcon />
                 <Typography textAlign="center">Прайс Лист</Typography>
               </MenuItem>
             </Menu>
@@ -199,23 +195,20 @@ const Navbar = () => {
             }}
           >
             {/* pc */}
+
             <MenuItem className="navs" onClick={() => navigate("/spec")}>
               <Typography textAlign="center">Специалисты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/services")}>
-              <MedicalServicesOutlinedIcon />
               <Typography textAlign="center">Сервисы</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-              <PermContactCalendarOutlinedIcon />
               <Typography textAlign="center">Контакты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-              <CalendarMonthOutlinedIcon />
               <Typography textAlign="center">Расписание врачей</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-              <EventNoteOutlinedIcon />
               <Typography textAlign="center">Прайс лист</Typography>
             </MenuItem>
           </Box>
