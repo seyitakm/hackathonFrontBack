@@ -1,16 +1,16 @@
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import MainRoutes from "./MainRoutes";
 import Navbar from "./components/Navbar";
-import ProductContextProvider from "./contexts/ProductContext";
+import SpecialtiesContextProvider from "./contexts/SpecialtiesContextProvider";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <ProductContextProvider>
+        <SpecialtiesContextProvider>
           <Navbar />
           <MainRoutes />
-        </ProductContextProvider>
+        </SpecialtiesContextProvider>
       </AuthContextProvider>
     </>
   );
