@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import AOS from "aos";
+
 import logo1 from "../components/icons/logo-price.png";
 
 const PriceList = () => {
