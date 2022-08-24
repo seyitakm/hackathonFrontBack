@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./components/products/AddProduct";
 import AboutUsPage from "./pages/AboutUsPage";
+import ActivationPage from "./pages/ActivationPage";
+import ChangePassPage from "./pages/ChangePassPage";
 import Contacts from "./pages/Contacts";
 import DoctorsSchedule from "./pages/DoctorsSchedule";
 import HomePage from "./pages/HomePage";
@@ -17,7 +19,9 @@ const MainRoutes = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/activation" element={<ActivationPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/changepass" element={<ChangePassPage />} />
       <Route path="/add" element={<AddProduct />} />
       <Route path="/*" element={<NotFoundPage />} />
       <Route path="/about" element={<AboutUsPage />} />
