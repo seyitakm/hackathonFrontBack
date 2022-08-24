@@ -91,6 +91,7 @@ const SpecialtiesContextProvider = ({ children }) => {
       };
       const res = await axios.post(`${API}doctor/doctor/`, newProduct, config);
       console.log(res);
+
       navigate("/spec");
     } catch (error) {
       console.log(error);

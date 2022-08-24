@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddSpec from "./components/products/AddSpec";
-
 import SpecialtiesList from "./components/products/SpecialtiesList";
 import AboutUsPage from "./pages/AboutUsPage";
 import AdminPage from "./pages/AdminPage";
+import ActivationPage from "./pages/ActivationPage";
+import ChangePassPage from "./pages/ChangePassPage";
 import Contacts from "./pages/Contacts";
 import DoctorsSchedule from "./pages/DoctorsSchedule";
 import HomePage from "./pages/HomePage";
@@ -21,8 +22,10 @@ const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/activation" element={<ActivationPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/add" element={<AddSpec />} />
+      <Route path="/changepass" element={<ChangePassPage />} />
       <Route path="/*" element={<NotFoundPage />} />
       <Route path="/about" element={<AboutUsPage />} />
       <Route path="/services" element={<Services />} />
