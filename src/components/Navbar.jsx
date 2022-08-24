@@ -147,23 +147,23 @@ const Navbar = () => {
                 <Typography textAlign="center">Home</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
-                <Typography textAlign="center">Specialties</Typography>
+                <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
                 <MedicalServicesOutlinedIcon />
-                <Typography textAlign="center">Services</Typography>
+                <Typography textAlign="center">Сервисы</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <PermContactCalendarOutlinedIcon />
-                <Typography textAlign="center">Contacts</Typography>
+                <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/schedule")}>
                 <CalendarMonthOutlinedIcon />
-                <Typography textAlign="center">Doctors Schedule</Typography>
+                <Typography textAlign="center">Расписание врачей</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
                 <EventNoteOutlinedIcon />
-                <Typography textAlign="center">Price list</Typography>
+                <Typography textAlign="center">Прайс Лист</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -200,23 +200,23 @@ const Navbar = () => {
           >
             {/* pc */}
             <MenuItem className="navs" onClick={() => navigate("/spec")}>
-              <Typography textAlign="center">Specialties</Typography>
+              <Typography textAlign="center">Специалисты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/services")}>
               <MedicalServicesOutlinedIcon />
-              <Typography textAlign="center">Services</Typography>
+              <Typography textAlign="center">Сервисы</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <PermContactCalendarOutlinedIcon />
-              <Typography textAlign="center">Contacts</Typography>
+              <Typography textAlign="center">Контакты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/schedule")}>
               <CalendarMonthOutlinedIcon />
-              <Typography textAlign="center">Doctors Schedule</Typography>
+              <Typography textAlign="center">Расписание врачей</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
               <EventNoteOutlinedIcon />
-              <Typography textAlign="center">Price list</Typography>
+              <Typography textAlign="center">Прайс лист</Typography>
             </MenuItem>
           </Box>
 
