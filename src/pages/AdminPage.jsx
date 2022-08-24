@@ -1,10 +1,10 @@
 import React from "react";
-import AddProduct from "../components/products/AddProduct";
+import AddSpec from "../components/products/AddSpec";
 
 const AdminPage = () => {
   return (
     <div>
-      <AddProduct />
+      <AddSpec />
     </div>
   );
 };

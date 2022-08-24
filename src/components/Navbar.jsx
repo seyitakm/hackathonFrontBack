@@ -22,10 +22,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const theme = createTheme({
+    palette: {
+      primary: { main: "#5049ac" },
+    },
+  });
   //   const settings = ["Register", "Login", "Logout"];
 
   const navigate = useNavigate();
@@ -143,26 +152,21 @@ const Navbar = () => {
             >
               {/* mobile */}
               <MenuItem className="navs" onClick={() => navigate("/")}>
-                <HomeIcon />
                 <Typography textAlign="center">Home</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
                 <Typography textAlign="center">Specialties</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <MedicalServicesOutlinedIcon />
                 <Typography textAlign="center">Services</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <PermContactCalendarOutlinedIcon />
                 <Typography textAlign="center">Contacts</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <CalendarMonthOutlinedIcon />
                 <Typography textAlign="center">Doctors Schedule</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <EventNoteOutlinedIcon />
                 <Typography textAlign="center">Price list</Typography>
               </MenuItem>
             </Menu>
@@ -199,25 +203,27 @@ const Navbar = () => {
             }}
           >
             {/* pc */}
-            <MenuItem className="navs" onClick={() => navigate("/spec")}>
-              <Typography textAlign="center">Specialties</Typography>
-            </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/services")}>
-              <MedicalServicesOutlinedIcon />
-              <Typography textAlign="center">Services</Typography>
-            </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-              <PermContactCalendarOutlinedIcon />
-              <Typography textAlign="center">Contacts</Typography>
-            </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-              <CalendarMonthOutlinedIcon />
-              <Typography textAlign="center">Doctors Schedule</Typography>
-            </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-              <EventNoteOutlinedIcon />
-              <Typography textAlign="center">Price list</Typography>
-            </MenuItem>
+            <ThemeProvider color="primary" theme={theme}>
+              <MenuItem
+                color="primary"
+                className="navs"
+                onClick={() => navigate("/spec")}
+              >
+                <Typography textAlign="center">Specialties</Typography>
+              </MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/services")}>
+                <Typography textAlign="center">Services</Typography>
+              </MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/contacts")}>
+                <Typography textAlign="center">Contacts</Typography>
+              </MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/schedule")}>
+                <Typography textAlign="center">Doctors Schedule</Typography>
+              </MenuItem>
+              <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
+                <Typography textAlign="center">Price list</Typography>
+              </MenuItem>
+            </ThemeProvider>
           </Box>
 
           {/* <TextField

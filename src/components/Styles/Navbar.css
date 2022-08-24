@@ -1,26 +1,38 @@
 #navbar {
   background-color: rgb(255, 255, 255) !important;
+  /* border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important; */
 }
 
 .navs {
-  color: black !important;
-}
-
-.navs:hover {
-  color: rgb(43, 129, 90) !important;
+  color: rgb(108, 107, 107) !important;
   background-color: transparent !important;
 }
 
+.navs:hover {
+  color: #5049ac !important;
+  background-color: transparent !important;
+}
+
+.navs:active {
+  color: #5049ac !important;
+  background-color: transparent !important;
+}
+.doc-icon {
+  margin-left: 3px !important;
+  font-size: 125% !important;
+}
+
 .menu {
-  color: black !important;
+  color: #605aa2 !important;
 }
 
 .navs-search {
-  color: black !important;
+  color: #605aa2 !important;
 }
 
 .navs-search:hover {
-  color: rgb(43, 129, 90) !important;
+  color: #605aa2 !important;
 }
 
 .navs-search:focus {
@@ -36,7 +48,7 @@
 }
 
 .nav-name {
-  color: black !important;
+  color: #574fa8 !important;
 }
 
 @media screen and (max-width: 900px) {
