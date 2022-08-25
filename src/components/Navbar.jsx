@@ -10,20 +10,12 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import MenuItem from "@mui/material/MenuItem";
-import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
-import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
 import logo from "./icons/logo.png";
-import MedicalServicesOutlinedIcon from "@mui/icons-material/MedicalServicesOutlined";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
-import { TextField } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 const Navbar = () => {
