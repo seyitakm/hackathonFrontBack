@@ -248,12 +248,11 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 0, ml: 2 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Typography sx={{ alignSelf: "center" }}>{user}</Typography>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: "45px" }}
+                sx={{ mt: "75px" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
@@ -268,12 +267,13 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
+                <Typography sx={{ alignSelf: "center" }}>{user}</Typography>
                 <MenuItem onClick={() => navigate("/admin")}>
                   <Typography textAlign="center">Админ</Typography>
                 </MenuItem>
-                <Button sx={buttons} onClick={logout}>
-                  Выход
-                </Button>
+                <MenuItem onClick={logout}>
+                  <Typography textAlign="center">Выход</Typography>
+                </MenuItem>
                 {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

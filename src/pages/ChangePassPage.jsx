@@ -19,7 +19,7 @@ const ChangePassPage = () => {
                 <input
                   type="text"
                   className="login__input"
-                  placeholder="username / email"
+                  placeholder="электронная почта"
                   id="email"
                   name="email"
                   autoComplete="email"
@@ -29,7 +29,7 @@ const ChangePassPage = () => {
               </div>
 
               <button className="button login__submit">
-                <span className="button__text">Send code</span>
+                <span className="button__text">Отправить код</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </div>
