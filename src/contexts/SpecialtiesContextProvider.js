@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+import { JSON_API_DOCS } from "../helpers/consts";
 
 export const specialtiesContext = createContext();
 export const useProducts = () => useContext(specialtiesContext);
@@ -17,7 +18,7 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
-        products: action.payload.results,
+        specs: action.payload.results,
         pages: Math.ceil(action.payload.count / 5),
       };
     case "GET_CATEGORIES":
@@ -45,11 +46,11 @@ const SpecialtiesContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios(
-        `${API}doctor/doctor/${window.location.search}`,
+      const res = await axios.get(
+        `${JSON_API_DOCS}doctor/${window.location.search}`,
         config
       );
-      console.log(res);
+      console.log(res.data.results);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -98,6 +99,23 @@ const SpecialtiesContextProvider = ({ children }) => {
     }
   }
 
+  // async function editSpec(id) {
+  //   try {
+  //     const token = JSON.parse(localStorage.getItem("token"));
+  //     const Authorization = `Bearer ${token.access}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+
+  //     await axios.patch(`${API}doctor/doctor/${id}/`, config);
+  //     getSpecs();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
   async function deleteSpec(id) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -108,7 +126,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         },
       };
 
-      await axios.delete(`${API}doctor/doctor/{id}/`, config);
+      await axios.delete(`${API}doctor/doctor/${id}/`, config);
       getSpecs();
     } catch (error) {
       console.log(error);
@@ -122,6 +140,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         getSpecs,
         getCategories,
         deleteSpec,
+        // editSpec,
         specs: state.specs,
         pages: state.pages,
         category: state.category,

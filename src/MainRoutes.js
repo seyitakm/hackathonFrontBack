@@ -14,6 +14,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PriceList from "./pages/PriceList";
 import RegisterPage from "./pages/RegisterPage";
 import Services from "./pages/Services";
+import EditSpec from "./components/products/EditSpec";
 
 const MainRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const MainRoutes = () => {
       <Route path="/pricelist" element={<PriceList />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/schedule" element={<DoctorsSchedule />} />
+      <Route path="/edit" element={<EditSpec />} />
     </Routes>
   );
 };

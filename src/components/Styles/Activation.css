@@ -11,6 +11,7 @@
 
 .cookiesContent {
   width: 320px;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,11 +31,11 @@ button .close {
   border: none;
   margin-bottom: 10px;
 }
-img {
+.imgActive {
   width: 82px;
   margin-bottom: 15px;
 }
-p {
+.p {
   margin-bottom: 40px;
   font-size: 18px;
 }

@@ -22,6 +22,7 @@ const AddSpec = () => {
     description: "",
     number: "",
     categories: [0],
+    image: "",
     // service_listing: [0],
   });
 
@@ -53,7 +54,7 @@ const AddSpec = () => {
     newProduct.append("number", product.number);
     newProduct.append("categories", product.categories);
     // newProduct.append("service_listing", product.service_listing);
-    // newProduct.append("image", product.image);
+    newProduct.append("image", product.image);
     addSpecs(newProduct);
   }
   console.log(category);
@@ -131,14 +132,14 @@ const AddSpec = () => {
         onChange={handleInp}
         value={product.number}
       />
-      {/* <TextField
+      <TextField
         sx={{ m: 1 }}
         id="standard-basic"
         label="Category"
         variant="outlined"
         fullWidth
         name="category"
-      /> */}
+      />
 
       <FormControl sx={{ mt: 1 }} fullWidth>
         <InputLabel id="demo-simple-select-label">Specs</InputLabel>
@@ -161,14 +162,15 @@ const AddSpec = () => {
           <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
-      {/* <TextField
+      <TextField
         sx={{ m: 1 }}
         id="standard-basic"
         label="Image"
         variant="outlined"
         fullWidth
         name="image"
-      /> */}
+        // onChange={handleInp}
+      />
 
       {/* <input
         style={{ marginTop: 10 }}

@@ -46,7 +46,7 @@ const AuthContextProvider = ({ children }) => {
       const Authorization = `Bearer ${token.access}`;
 
       let result = await axios.post(
-        `${API}account/token/refresh`,
+        `${API}account/api/token/refresh/`,
         {
           refresh: token.refresh,
         },
@@ -56,7 +56,7 @@ const AuthContextProvider = ({ children }) => {
         "token",
         JSON.stringify({ refresh: token.refresh, access: result.data.access })
       );
-      let username = localStorage.getItem("username");
+      let username = localStorage.getItem("email");
       setUser(username);
     } catch (error) {
       logout();

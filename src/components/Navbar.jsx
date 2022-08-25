@@ -15,18 +15,15 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/material";
+
+import { Button, createTheme } from "@mui/material";
+import { useAuth } from "../contexts/AuthContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const theme = createTheme({
-    palette: {
-      primary: { main: "#5049ac" },
-    },
-  });
-  //   const settings = ["Register", "Login", "Logout"];
+  const { user, logout, checkAuth } = useAuth();
 
   const navigate = useNavigate();
 
@@ -87,8 +84,20 @@ const Navbar = () => {
     },
   }));
 
+  const buttons = {
+    color: "black",
+    display: "block",
+    textTransform: "capitalize",
+  };
+
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
+
   return (
-    <AppBar position="realitive" id="navbar">
+    <AppBar position="relative" id="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img className="logo1" src={logo} alt="logo" />
@@ -225,43 +234,57 @@ const Navbar = () => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Поиск.."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-
-          <Box sx={{ flexGrow: 0, ml: 2 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem onClick={() => navigate("/admin")}>
-                <Typography textAlign="center">Admin</Typography>
-              </MenuItem>
-              {/* {settings.map((setting) => (
+          {user ? (
+            <Box sx={{ flexGrow: 0, ml: 2 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Typography sx={{ alignSelf: "center" }}>{user}</Typography>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={() => navigate("/admin")}>
+                  <Typography textAlign="center">Админ</Typography>
+                </MenuItem>
+                <Button sx={buttons} onClick={logout}>
+                  Выход
+                </Button>
+                {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))} */}
-            </Menu>
-          </Box>
+              </Menu>
+            </Box>
+          ) : (
+            <Box sx={{ display: "flex" }}>
+              <Button sx={buttons} onClick={() => navigate("/login")}>
+                Авторизация
+              </Button>
+              <Button sx={buttons} onClick={() => navigate("/register")}>
+                Регистрация
+              </Button>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
