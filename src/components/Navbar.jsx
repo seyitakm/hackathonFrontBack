@@ -16,7 +16,8 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Button, createTheme, ThemeProvider } from "@mui/material";
+import { useAuth } from "../contexts/AuthContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,7 +28,8 @@ const Navbar = () => {
       primary: { main: "#5049ac" },
     },
   });
-  //   const settings = ["Register", "Login", "Logout"];
+
+  const { user, logout, checkAuth } = useAuth();
 
   const navigate = useNavigate();
 
@@ -88,6 +90,18 @@ const Navbar = () => {
     },
   }));
 
+  const buttons = {
+    color: "black",
+    display: "block",
+    textTransform: "capitalize",
+  };
+
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
+
   return (
     <AppBar position="realitive" id="navbar">
       <Container maxWidth="xl">
@@ -144,22 +158,22 @@ const Navbar = () => {
             >
               {/* mobile */}
               <MenuItem className="navs" onClick={() => navigate("/")}>
-                <Typography textAlign="center">Home</Typography>
+                <Typography textAlign="center">Главная</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
-                <Typography textAlign="center">Specialties</Typography>
+                <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Services</Typography>
+                <Typography textAlign="center">Сервисы</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <Typography textAlign="center">Contacts</Typography>
+                <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <Typography textAlign="center">Doctors Schedule</Typography>
+                <Typography textAlign="center">Расписание врачей</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <Typography textAlign="center">Price list</Typography>
+                <Typography textAlign="center">Прайс Лист</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -195,27 +209,22 @@ const Navbar = () => {
             }}
           >
             {/* pc */}
-            <ThemeProvider color="primary" theme={theme}>
-              <MenuItem
-                color="primary"
-                className="navs"
-                onClick={() => navigate("/spec")}
-              >
-                <Typography textAlign="center">Specialties</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Services</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <Typography textAlign="center">Contacts</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <Typography textAlign="center">Doctors Schedule</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <Typography textAlign="center">Price list</Typography>
-              </MenuItem>
-            </ThemeProvider>
+
+            <MenuItem className="navs" onClick={() => navigate("/spec")}>
+              <Typography textAlign="center">Специалисты</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/services")}>
+              <Typography textAlign="center">Сервисы</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/contacts")}>
+              <Typography textAlign="center">Контакты</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/schedule")}>
+              <Typography textAlign="center">Расписание врачей</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
+              <Typography textAlign="center">Прайс лист</Typography>
+            </MenuItem>
           </Box>
 
           {/* <TextField
@@ -231,43 +240,57 @@ const Navbar = () => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Поиск.."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-
-          <Box sx={{ flexGrow: 0, ml: 2 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem onClick={() => navigate("/admin")}>
-                <Typography textAlign="center">Admin</Typography>
-              </MenuItem>
-              {/* {settings.map((setting) => (
+          {user ? (
+            <Box sx={{ flexGrow: 0, ml: 2 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Typography sx={{ alignSelf: "center" }}>{user}</Typography>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={() => navigate("/admin")}>
+                  <Typography textAlign="center">Админ</Typography>
+                </MenuItem>
+                <Button sx={buttons} onClick={logout}>
+                  Выход
+                </Button>
+                {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))} */}
-            </Menu>
-          </Box>
+              </Menu>
+            </Box>
+          ) : (
+            <Box sx={{ display: "flex" }}>
+              <Button sx={buttons} onClick={() => navigate("/login")}>
+                Авторизация
+              </Button>
+              <Button sx={buttons} onClick={() => navigate("/register")}>
+                Регистрация
+              </Button>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

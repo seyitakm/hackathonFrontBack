@@ -2,6 +2,9 @@ import * as React from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "@mui/material";
+import facebook from "../components/icons/icons8-facebook-64.png";
+import whatsapp from "../components/icons/icons8-whatsapp-64.png";
+import telegram from "../components/icons/icons8-telegram-app-64.png";
 
 export default function LoginPage() {
   const { login, error, setError } = useAuth();
@@ -31,7 +34,7 @@ export default function LoginPage() {
                 <input
                   type="text"
                   className="login__input"
-                  placeholder="email"
+                  placeholder="электронная почта"
                   id="email"
                   name="email"
                   autoComplete="email"
@@ -44,7 +47,7 @@ export default function LoginPage() {
                 <input
                   type="password"
                   className="login__input"
-                  placeholder="password"
+                  placeholder="пароль"
                   name="password"
                   id="password"
                   autoComplete="current-password"
@@ -54,20 +57,33 @@ export default function LoginPage() {
                 <i className="login__icon fas fa-lock"></i>
               </div>
               <button className="button login__submit" onClick={handleSave}>
-                <span className="button__text">Sign in</span>
+                <span className="button__text">Войти</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </div>
-            <a onClick={() => navigate("/register")}>
-              Already have an account? Sign up
-            </a>
-            <a onClick={() => navigate("/changepass")}>Forgot password?</a>
+            <a onClick={() => navigate("/register")}>Зарегистрироваться</a>
+            <a onClick={() => navigate("/changepass")}>Забыли пароль?</a>
             <div className="social-login">
-              <h3>log in via</h3>
+              <h3>Войти через</h3>
               <div className="social-icons">
-                <a href="#" className="social-login__icon fab fa-instagram"></a>
-                <a href="#" className="social-login__icon fab fa-facebook"></a>
-                <a href="#" className="social-login__icon fab fa-twitter"></a>
+                <a href="#">
+                  <img
+                    src={facebook}
+                    className="social-login__icon fab fa-facebook"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={whatsapp}
+                    className="social-login__icon fab fa-twitter"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={telegram}
+                    className="social-login__icon fab fa-instagram"
+                  ></img>
+                </a>
               </div>
             </div>
           </div>

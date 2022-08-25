@@ -31,11 +31,11 @@ button .close {
   border: none;
   margin-bottom: 10px;
 }
-img {
+.imgActive {
   width: 82px;
   margin-bottom: 15px;
 }
-p {
+.p {
   margin-bottom: 40px;
   font-size: 18px;
 }
