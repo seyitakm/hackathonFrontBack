@@ -12,11 +12,14 @@ const ChangePassPage = () => {
           <div className="screen__content">
             <div className="login">
               <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
                 <input
                   type="text"
                   className="login__input"
-                  placeholder="username / email"
+                  placeholder="электронная почта"
                   id="email"
                   name="email"
                   autoComplete="email"
@@ -26,11 +29,13 @@ const ChangePassPage = () => {
               </div>
 
               <button className="button login__submit">
-                <span className="button__text">Send code</span>
+                <span className="button__text">Отправить код</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </div>
-            <a onClick={() => navigate("/login")}>back to login</a>
+            <div className="btnChangeP">
+              <a onClick={() => navigate("/login")}>назад</a>
+            </div>
           </div>
           <div className="screen__background">
             <span className="screen__background__shape screen__background__shape4"></span>

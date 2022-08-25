@@ -7,25 +7,25 @@ const ActivationPage = () => {
     <div className="bodyActivation">
       <div className="container">
         <div className="cookiesContent" id="cookiesPopup">
-          <h3>Activate your account</h3>
+          <h3>Активация аккаунта</h3>
           <img
             className="imgActive"
             src="https://cdn-icons-png.flaticon.com/512/4812/4812397.png"
             alt="cookies-img"
           />
           <p className="p">
-            Please check your email, and open the link to activate your account!
-            Once you have done, click sign in to move forward
+            Пожалуйста проверьте вашу почту, и активируйте свой аккаунт по
+            ссылке!
           </p>
           <div className="flexActivation">
             <button
               onClick={() => navigate("/login")}
               className="accept signin"
             >
-              Sign in
+              Логин
             </button>
             <button onClick={() => navigate("/register")} className="accept">
-              back
+              Назад
             </button>
           </div>
         </div>

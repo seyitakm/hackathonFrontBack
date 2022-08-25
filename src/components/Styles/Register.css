@@ -90,7 +90,7 @@
 .login {
   width: 320px;
   padding: 30px;
-  padding-top: 156px;
+  padding-top: 90px;
 }
 
 .login__field {
@@ -155,8 +155,17 @@
 }
 
 .social-login {
-  position: absolute;
+  /* position: absolute; */
   /* height: 140px; */
+  /* width: 160px; */
+  text-align: center;
+  /* bottom: 0px; */
+  /* right: 0px; */
+  color: #fff;
+}
+.social-loginLog {
+  position: absolute;
+  height: 140px;
   width: 160px;
   text-align: center;
   bottom: 0px;
@@ -182,9 +191,36 @@
   transform: scale(1.2);
 }
 .logInCss {
-  width: 50%;
   display: flex;
   flex-direction: column;
-  margin-top: 2%;
-  margin-left: 2%;
+  margin-top: 10%;
+}
+.logInCss a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #7874bc;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.btnForgot {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  cursor: pointer;
+}
+.registerCss {
+  cursor: pointer;
+  background-color: #7874bc;
+  border: 2px solid #7c78b8;
+  border-radius: 10px;
+  text-align: center;
+}
+.btnChangeP {
+  /* width: 50%; */
+  cursor: pointer;
+  /* background-color: #7874bc; */
+  /* border: 2px solid #7c78b8; */
+  border-radius: 10px;
+  text-align: center;
 }
