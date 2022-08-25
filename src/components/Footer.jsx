@@ -26,7 +26,7 @@ const Footer = () => {
                 <a href="#">Новости</a>
               </li>
               <li>
-                <a href="#">Контакты</a>
+                <a href="/contacts">Контакты</a>
               </li>
               <li style={{ display: "flex" }}>
                 <a href="">
@@ -83,7 +83,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className="footer-copyrigth">
-          <p>Медицинский центр "Здоровье" © 2016-2022 Все права защищены</p>
+          <p>Медицинский центр "BishClinic+" © 2016-2022 Все права защищены</p>
         </div>
       </footer>
     </div>

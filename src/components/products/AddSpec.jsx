@@ -13,14 +13,16 @@ import React, { useEffect, useState } from "react";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 
 const AddSpec = () => {
-  const { getCategories, categories, addSpecs } = useProducts();
+  const { getCategories, category, addSpecs } = useProducts();
 
   const [product, setProduct] = useState({
-    title: "",
+    first_name: "",
+    last_name: "",
+    adress: "",
     description: "",
-    experience: "",
-    category: "",
-    image: "",
+    number: "",
+    categories: [0],
+    // service_listing: [0],
   });
 
   const handleInp = (e) => {
@@ -41,18 +43,20 @@ const AddSpec = () => {
     getCategories();
   }, []);
 
-  console.log(categories);
-
   function handleSave() {
     let newProduct = new FormData();
-    newProduct.append("title", product.title);
+    newProduct.append("first_name", product.first_name);
+    newProduct.append("last_name", product.last_name);
+    newProduct.append("adress", product.adress);
+    // newProduct.append("experience", product.experience);
     newProduct.append("description", product.description);
-    newProduct.append("experience", product.experience);
-    newProduct.append("category", product.category);
-    newProduct.append("image", product.image);
+    newProduct.append("number", product.number);
+    newProduct.append("categories", product.categories);
+    // newProduct.append("service_listing", product.service_listing);
+    // newProduct.append("image", product.image);
     addSpecs(newProduct);
   }
-
+  console.log(category);
   return (
     <Box
       sx={{
@@ -70,12 +74,32 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Name"
+        label="First Name"
         variant="outlined"
         fullWidth
-        name="title"
+        name="first_name"
         onChange={handleInp}
-        value={product.title}
+        value={product.first_name}
+      />
+      <TextField
+        sx={{ m: 1 }}
+        id="standard-basic"
+        label="Last Name"
+        variant="outlined"
+        fullWidth
+        name="last_name"
+        onChange={handleInp}
+        value={product.last_name}
+      />
+      <TextField
+        sx={{ m: 1 }}
+        id="standard-basic"
+        label="Adress"
+        variant="outlined"
+        fullWidth
+        name="adress"
+        onChange={handleInp}
+        value={product.adress}
       />
       <TextField
         sx={{ m: 1 }}
@@ -97,6 +121,16 @@ const AddSpec = () => {
         onChange={handleInp}
         value={product.experience}
       />
+      <TextField
+        sx={{ m: 1 }}
+        id="standard-basic"
+        label="Number"
+        variant="outlined"
+        fullWidth
+        name="number"
+        onChange={handleInp}
+        value={product.number}
+      />
       {/* <TextField
         sx={{ m: 1 }}
         id="standard-basic"
@@ -106,23 +140,23 @@ const AddSpec = () => {
         name="category"
       /> */}
 
-      <FormControl fullWidth>
+      <FormControl sx={{ mt: 1 }} fullWidth>
         <InputLabel id="demo-simple-select-label">Specs</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="сфеупщкн"
+          label="categories"
           onChange={handleInp}
-          value={product.category}
-          name="category"
+          value={product.categories}
+          name="categories"
         >
-          {categories?.map((item) => (
+          {category?.map((item) => (
             <MenuItem value={item.id} key={item.id}>
-              {item.title}
+              {item.last_name}
             </MenuItem>
           ))}
+          {/* <MenuItem value={10}>Doctor</MenuItem>
           <MenuItem value={10}>Ten</MenuItem>
-          {/* <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
@@ -136,12 +170,13 @@ const AddSpec = () => {
         name="image"
       /> */}
 
-      <input
+      {/* <input
+        style={{ marginTop: 10 }}
         type="file"
         // hidden
         name="image"
         onChange={handleInp}
-      />
+      /> */}
 
       <Button
         sx={{
@@ -152,7 +187,7 @@ const AddSpec = () => {
         size="large"
         onClick={handleSave}
       >
-        ADD Person
+        Add Person
       </Button>
     </Box>
   );

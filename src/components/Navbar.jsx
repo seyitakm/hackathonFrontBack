@@ -8,7 +8,6 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import logo from "./icons/logo.png";
@@ -144,22 +143,22 @@ const Navbar = () => {
             >
               {/* mobile */}
               <MenuItem className="navs" onClick={() => navigate("/")}>
-                <Typography textAlign="center">Home</Typography>
+                <Typography textAlign="center">Главная</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
-                <Typography textAlign="center">Specialties</Typography>
+                <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Services</Typography>
+                <Typography textAlign="center">Сервисы</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <Typography textAlign="center">Contacts</Typography>
+                <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <Typography textAlign="center">Doctors Schedule</Typography>
+                <Typography textAlign="center">Расписание врачей</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <Typography textAlign="center">Price list</Typography>
+                <Typography textAlign="center">Прайс Лист</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -195,27 +194,22 @@ const Navbar = () => {
             }}
           >
             {/* pc */}
-            <ThemeProvider color="primary" theme={theme}>
-              <MenuItem
-                color="primary"
-                className="navs"
-                onClick={() => navigate("/spec")}
-              >
-                <Typography textAlign="center">Specialties</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Services</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/contacts")}>
-                <Typography textAlign="center">Contacts</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <Typography textAlign="center">Doctors Schedule</Typography>
-              </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
-                <Typography textAlign="center">Price list</Typography>
-              </MenuItem>
-            </ThemeProvider>
+
+            <MenuItem className="navs" onClick={() => navigate("/spec")}>
+              <Typography textAlign="center">Специалисты</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/services")}>
+              <Typography textAlign="center">Сервисы</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/contacts")}>
+              <Typography textAlign="center">Контакты</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/schedule")}>
+              <Typography textAlign="center">Расписание врачей</Typography>
+            </MenuItem>
+            <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
+              <Typography textAlign="center">Прайс лист</Typography>
+            </MenuItem>
           </Box>
 
           {/* <TextField

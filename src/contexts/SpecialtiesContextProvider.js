@@ -9,7 +9,7 @@ const INIT_STATE = {
   specs: [],
   pages: 0,
   oneProduct: null,
-  categories: [],
+  category: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -21,7 +21,7 @@ function reducer(state = INIT_STATE, action) {
         pages: Math.ceil(action.payload.count / 5),
       };
     case "GET_CATEGORIES":
-      return { ...state, categories: action.payload };
+      return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
     default:
@@ -124,7 +124,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         deleteSpec,
         specs: state.specs,
         pages: state.pages,
-        categories: state.categories,
+        category: state.category,
       }}
     >
       {children}
