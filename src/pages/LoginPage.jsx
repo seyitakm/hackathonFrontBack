@@ -30,7 +30,10 @@ export default function LoginPage() {
             {error ? <Alert severity="error">{error}</Alert> : null}
             <div className="login">
               <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
                 <input
                   type="text"
                   className="login__input"
@@ -43,7 +46,10 @@ export default function LoginPage() {
                 />
               </div>
               <div className="login__field">
-                <i className="login__icon fas fa-lock"></i>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuYfYI8JKYaLPcSUg77gZPArak9tHUp78uQ&usqp=CAU"
+                  className="login__icon fas fa-lock"
+                ></img>
                 <input
                   type="password"
                   className="login__input"
@@ -61,9 +67,13 @@ export default function LoginPage() {
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </div>
-            <a onClick={() => navigate("/register")}>Зарегистрироваться</a>
-            <a onClick={() => navigate("/changepass")}>Забыли пароль?</a>
-            <div className="social-login">
+            <div className="btnForgot">
+              <a className="registerCss" onClick={() => navigate("/register")}>
+                Зарегистрироваться
+              </a>
+              <a onClick={() => navigate("/changepass")}>Забыли пароль?</a>
+            </div>
+            <div className="social-loginLog">
               <h3>Войти через</h3>
               <div className="social-icons">
                 <a href="#">

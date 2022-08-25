@@ -92,9 +92,11 @@ export default function RegisterPage() {
                 <span className="button__text">Зарегистрироваться</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
-            </div>
-            <div className="logInCss">
-              <a onClick={() => navigate("/login")}>Уже есть аккаунт? Войти</a>
+              <div className="logInCss">
+                <a onClick={() => navigate("/login")}>
+                  Уже есть аккаунт? Войти
+                </a>
+              </div>
             </div>
             <div className="social-login">
               <h3>Войти через</h3>

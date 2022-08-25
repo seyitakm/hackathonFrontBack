@@ -6,14 +6,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  /* height: 70vh; */
 }
 
 .cookiesContent {
   width: 320px;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
+  height: 333px;
+  /* display: flex; */
+  /* flex-direction: column; */
   align-items: center;
   border: 1px solid #9a9a9a;
   background-color: #ffffff;
