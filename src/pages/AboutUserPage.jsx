@@ -11,7 +11,7 @@ const AboutUserPage = () => {
 
   function handleSave() {
     let formData = new FormData();
-    formData.append("email", email);
+    // formData.append("email", email);
     formData.append("old_password", old_password);
     formData.append("new_password", new_password);
     change_password(formData);

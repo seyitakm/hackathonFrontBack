@@ -57,12 +57,10 @@ const AuthContextProvider = ({ children }) => {
     try {
       let token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
+      console.log(Authorization);
       const result = await axios.patch(
         `${API}account/change-password/`,
         formData,
-        {
-          refresh: token.refresh,
-        },
         { headers: { Authorization } }
       );
       localStorage.setItem(
