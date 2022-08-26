@@ -89,7 +89,7 @@ const Navbar = () => {
   }));
 
   return (
-    <AppBar position="realitive" id="navbar">
+    <AppBar position="relative" id="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img className="logo1" src={logo} alt="logo" />

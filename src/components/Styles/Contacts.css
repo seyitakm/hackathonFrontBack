@@ -1,6 +1,6 @@
 .Contacts {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 }
 .leaflet-container {
   width: 90%;
@@ -35,4 +35,37 @@
 }
 .contacts-info ul li {
   list-style: none;
+  margin: 5px;
+}
+.contacts-btn {
+  display: flex;
+  flex-direction: column;
+}
+.btn-contacts {
+  height: 3vw;
+  width: 13vw;
+  border-radius: 3vh;
+  border: none;
+  margin: 5px;
+  background-color: #425397;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  color: #ffff;
+}
+.btn-contacts1 {
+  height: 3vw;
+  width: 13vw;
+  border-radius: 3vh;
+  border: none;
+  margin: 5px;
+  background-color: #57a381;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  color: #ffff;
+}
+.btn-contacts:hover {
+  background-color: #4d5c97;
+}
+.btn-contacts1:hover {
+  background-color: #519476;
 }

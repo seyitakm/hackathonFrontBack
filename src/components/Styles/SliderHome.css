@@ -1,0 +1,17 @@
+image-carousel {
+  margin: 1em 10em;
+  box-sizing: border-box;
+}
+image-carousel > img {
+  width: auto;
+  height: 30em;
+  max-height: calc(100vh - 2em);
+}
+image-carousel::part(controls) {
+  filter: drop-shadow(2px 3px 3px #000a);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+image-carousel:hover::part(controls) {
+  opacity: 0.6;
+}

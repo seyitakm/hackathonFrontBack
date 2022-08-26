@@ -1,11 +1,10 @@
 import React from "react";
-import Footer from "../components/Footer";
-import ActivationPage from "./ActivationPage";
+import SliderHome from "../components/SliderHome";
 
 const HomePage = () => {
   return (
     <div>
-      <Footer />
+      <SliderHome />
     </div>
   );
 };

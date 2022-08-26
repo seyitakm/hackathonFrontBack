@@ -11,6 +11,7 @@ function App() {
         <SpecialtiesContextProvider>
           <Navbar />
           <MainRoutes />
+          <Footer />
         </SpecialtiesContextProvider>
       </AuthContextProvider>
     </>
