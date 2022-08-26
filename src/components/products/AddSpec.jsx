@@ -164,22 +164,13 @@ const AddSpec = () => {
         </Select>
       </FormControl>
 
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standard-basic"
-        label="Image"
-        variant="outlined"
-        fullWidth
-        name="image"
-        // onChange={handleInp}
-      /> */}
-      {/* <input
+      <input
         style={{ marginTop: 10 }}
         type="file"
         // hidden
         name="image"
         onChange={handleInp}
-      /> */}
+      />
       <Button
         sx={{
           m: 1,

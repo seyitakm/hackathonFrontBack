@@ -69,7 +69,11 @@ export default function SpecialtiesCard({ item }) {
       <div className="card">
         <div className="face face1">
           <div className="content">
-            <img src={item.image} alt="doc" />
+            <img
+              style={{ width: "145px", height: "145px" }}
+              src={item.image}
+              alt="doc"
+            />
             {/* <i className="fab fa-apple"></i> */}
           </div>
         </div>

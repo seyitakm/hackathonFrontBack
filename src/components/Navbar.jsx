@@ -261,7 +261,12 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Typography sx={{ alignSelf: "center" }}>{user}</Typography>
+                <Typography
+                  sx={{ alignSelf: "center", cursor: "pointer" }}
+                  onClick={() => navigate("/user")}
+                >
+                  {user}
+                </Typography>
                 <MenuItem onClick={() => navigate("/admin")}>
                   <Typography textAlign="center">Админ</Typography>
                 </MenuItem>

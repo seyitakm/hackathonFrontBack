@@ -14,8 +14,11 @@ import NotFoundPage from "./pages/NotFoundPage";
 import PriceList from "./pages/PriceList";
 import RegisterPage from "./pages/RegisterPage";
 import Services from "./pages/Services";
+
 import SpecDetails from "./components/products/SpecDetails";
 // import EditSpec from "./components/products/EditSpec";
+
+import AboutUserPage from "./pages/AboutUserPage";
 
 const MainRoutes = () => {
   return (
@@ -23,6 +26,7 @@ const MainRoutes = () => {
       <Route path="/spec" element={<SpecialtiesList />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/admin" element={<AdminPage />} />
+      <Route path="/user" element={<AboutUserPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/activation" element={<ActivationPage />} />
       <Route path="/login" element={<LoginPage />} />

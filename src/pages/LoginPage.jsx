@@ -7,7 +7,7 @@ import whatsapp from "../components/icons/icons8-whatsapp-64.png";
 import telegram from "../components/icons/icons8-telegram-app-64.png";
 
 export default function LoginPage() {
-  const { login, error, setError } = useAuth();
+  const { login, error, setError, checkUser } = useAuth();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
