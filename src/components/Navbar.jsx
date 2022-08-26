@@ -281,16 +281,15 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <MenuItem onClick={logout}>
-                      <Typography textAlign="center">Выход</Typography>
-                    </MenuItem>
-
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
                       onClick={() => navigate("/user")}
                     >
                       {user}
                     </Typography>
+                    <MenuItem onClick={logout}>
+                      <Typography textAlign="center">Выход</Typography>
+                    </MenuItem>
                   </>
                 )}
 
