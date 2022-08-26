@@ -261,18 +261,39 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Typography
-                  sx={{ alignSelf: "center", cursor: "pointer" }}
-                  onClick={() => navigate("/user")}
-                >
-                  {user}
-                </Typography>
-                <MenuItem onClick={() => navigate("/admin")}>
-                  <Typography textAlign="center">Админ</Typography>
-                </MenuItem>
-                <MenuItem onClick={logout}>
-                  <Typography textAlign="center">Выход</Typography>
-                </MenuItem>
+                {user == "beksbor05@gmail.com" ||
+                user == "seyit200020@gmail.com" ? (
+                  <>
+                    <Typography
+                      sx={{ alignSelf: "center", cursor: "pointer" }}
+                      onClick={() => navigate("/user")}
+                    >
+                      {user}
+                    </Typography>
+
+                    <MenuItem onClick={() => navigate("/admin")}>
+                      <Typography textAlign="center">Админ</Typography>
+                    </MenuItem>
+
+                    <MenuItem onClick={logout}>
+                      <Typography textAlign="center">Выход</Typography>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <>
+                    <MenuItem onClick={logout}>
+                      <Typography textAlign="center">Выход</Typography>
+                    </MenuItem>
+
+                    <Typography
+                      sx={{ alignSelf: "center", cursor: "pointer" }}
+                      onClick={() => navigate("/user")}
+                    >
+                      {user}
+                    </Typography>
+                  </>
+                )}
+
                 {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

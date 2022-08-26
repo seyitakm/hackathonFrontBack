@@ -51,9 +51,9 @@
   text-align: center;
 }
 
-.container-card .card:hover .face.face1 .content {
-  /* opacity: 0; */
-}
+/* .container-card .card:hover .face.face1 .content {
+  
+} */
 
 .container-card .card .face.face1 .content i {
   font-size: 3em;
