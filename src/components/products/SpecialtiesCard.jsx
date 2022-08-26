@@ -70,7 +70,7 @@ export default function SpecialtiesCard({ item }) {
         <div className="face face1">
           <div className="content">
             <img
-              style={{ width: "145px", height: "145px" }}
+              style={{ width: "300px", height: "215px" }}
               src={item.image}
               alt="doc"
             />

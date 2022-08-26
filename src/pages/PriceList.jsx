@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 
 import logo1 from "../components/icons/logo-price.png";
+import Footer from "../components/Footer";
 
 const PriceList = () => {
   return (
@@ -353,7 +354,7 @@ const PriceList = () => {
           </Box>
         </Box>
 
-        <Box>
+        <Box style={{ marginBottom: 50 }}>
           <Box className="terapevt">
             <div className="title-terapevt">
               <strong>Терапевт</strong>
@@ -378,6 +379,7 @@ const PriceList = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

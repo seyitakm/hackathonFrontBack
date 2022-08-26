@@ -158,7 +158,7 @@ const Navbar = () => {
                 <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Сервисы</Typography>
+                <Typography textAlign="center">Услуги</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <Typography textAlign="center">Контакты</Typography>
@@ -208,7 +208,7 @@ const Navbar = () => {
               <Typography textAlign="center">Специалисты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/services")}>
-              <Typography textAlign="center">Сервисы</Typography>
+              <Typography textAlign="center">Услуги</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <Typography textAlign="center">Контакты</Typography>
@@ -246,7 +246,7 @@ const Navbar = () => {
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: "75px" }}
+                sx={{ mt: "75px", width: "350px !important" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
