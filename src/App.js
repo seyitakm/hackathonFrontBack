@@ -3,6 +3,8 @@ import MainRoutes from "./MainRoutes";
 import Navbar from "./components/Navbar";
 import SpecialtiesContextProvider from "./contexts/SpecialtiesContextProvider";
 
+import "../src/components/Styles/HomePage.css";
+
 function App() {
   return (
     <>

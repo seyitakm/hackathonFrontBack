@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@1,600&family=Rubik:ital@1&family=Signika:wght@500&family=Ubuntu:ital@1&display=swap");
 
 .price-list {
-  /* align-items: center; */
   background-image: url("https://images.unsplash.com/photo-1579165466991-467135ad3110?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
   position: relative;
   background-size: cover;
@@ -36,15 +35,16 @@
 }
 
 .logo3 {
+  width: 250px;
   margin-top: 530px !important;
   margin-right: 50px;
-  opacity: 0.9;
+  opacity: 3;
 }
 
 .price-title {
   margin-top: 830px;
   font-size: 95px;
-  color: #eedeeeca !important;
+  color: #e2dbe2ec !important;
   font-family: monospace;
   /* font-weight: 100; */
 }

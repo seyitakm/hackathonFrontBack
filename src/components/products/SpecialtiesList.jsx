@@ -6,10 +6,10 @@ import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import SpecialtiesCard from "./SpecialtiesCard";
 
 const SpecialtiesList = () => {
-  const { getSpecs, products, pages } = useProducts();
+  const { getSpecs, specs, pages } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
-
+  console.log(specs);
   useEffect(() => {
     getSpecs();
   }, []);
@@ -28,13 +28,20 @@ const SpecialtiesList = () => {
 
   return (
     <div>
-      <Box>
-        {products.map((item) => (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+          mt: 5,
+        }}
+      >
+        {specs.map((item) => (
           <SpecialtiesCard key={item.id} item={item} />
         ))}
       </Box>
 
-      <Box>
+      <Box sx={{ mt: 5, display: "flex", justifyContent: "center" }}>
         <Pagination
           count={pages}
           variant="outlined"
