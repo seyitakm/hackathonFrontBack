@@ -33,6 +33,7 @@ const SpecialtiesList = () => {
           display: "flex",
           justifyContent: "space-around",
           flexWrap: "wrap",
+          mt: 5,
         }}
       >
         {specs.map((item) => (

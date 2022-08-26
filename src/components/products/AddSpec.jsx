@@ -20,6 +20,7 @@ const AddSpec = () => {
     last_name: "",
     adress: "",
     description: "",
+    experience: "",
     number: "",
     categories: [0],
     image: "",
@@ -49,7 +50,7 @@ const AddSpec = () => {
     newProduct.append("first_name", product.first_name);
     newProduct.append("last_name", product.last_name);
     newProduct.append("adress", product.adress);
-    // newProduct.append("experience", product.experience);
+    newProduct.append("experience", product.experience);
     newProduct.append("description", product.description);
     newProduct.append("number", product.number);
     newProduct.append("categories", product.categories);
@@ -132,15 +133,15 @@ const AddSpec = () => {
         onChange={handleInp}
         value={product.number}
       />
-      <TextField
+      {/* <TextField
         sx={{ m: 1 }}
         id="standard-basic"
         label="Category"
         variant="outlined"
         fullWidth
-        name="category"
-      />
-
+        name="categories"
+        value={product.categories}
+      /> */}
       <FormControl sx={{ mt: 1 }} fullWidth>
         <InputLabel id="demo-simple-select-label">Specs</InputLabel>
         <Select
@@ -156,13 +157,14 @@ const AddSpec = () => {
               {item.last_name}
             </MenuItem>
           ))}
-          {/* <MenuItem value={10}>Doctor</MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
+          {/* <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={10}>Doctor</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
-      <TextField
+
+      {/* <TextField
         sx={{ m: 1 }}
         id="standard-basic"
         label="Image"
@@ -170,8 +172,7 @@ const AddSpec = () => {
         fullWidth
         name="image"
         // onChange={handleInp}
-      />
-
+      /> */}
       {/* <input
         style={{ marginTop: 10 }}
         type="file"
@@ -179,7 +180,6 @@ const AddSpec = () => {
         name="image"
         onChange={handleInp}
       /> */}
-
       <Button
         sx={{
           m: 1,
