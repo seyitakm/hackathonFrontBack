@@ -12,6 +12,7 @@ export default function RegisterPage() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState("");
   const [passwordConfirm, setPasswordConfirm] = React.useState("");
 
   function handleSave() {
@@ -23,6 +24,7 @@ export default function RegisterPage() {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirm", passwordConfirm);
+    formData.append("username", username);
     register(formData);
   }
   console.log(email, password, passwordConfirm);
@@ -53,6 +55,22 @@ export default function RegisterPage() {
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
+                />
+              </div>
+              <div className="login__field">
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
+                <input
+                  type="text"
+                  className="login__input"
+                  placeholder="username"
+                  id="username"
+                  name="username"
+                  autoComplete="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
                 />
               </div>
               <div className="login__field">
