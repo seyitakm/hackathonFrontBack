@@ -6,13 +6,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  /* height: 70vh; */
 }
 
 .cookiesContent {
   width: 320px;
-  display: flex;
-  flex-direction: column;
+  height: 333px;
+  /* display: flex; */
+  /* flex-direction: column; */
   align-items: center;
   border: 1px solid #9a9a9a;
   background-color: #ffffff;
@@ -30,11 +31,11 @@ button .close {
   border: none;
   margin-bottom: 10px;
 }
-img {
+.imgActive {
   width: 82px;
   margin-bottom: 15px;
 }
-p {
+.p {
   margin-bottom: 40px;
   font-size: 18px;
 }

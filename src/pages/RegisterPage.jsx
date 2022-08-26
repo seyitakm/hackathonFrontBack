@@ -3,12 +3,16 @@ import { useAuth } from "../contexts/AuthContextProvider";
 import "../components/Styles/Register.css";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import facebook from "../components/icons/icons8-facebook-64.png";
+import whatsapp from "../components/icons/icons8-whatsapp-64.png";
+import telegram from "../components/icons/icons8-telegram-app-64.png";
 
 export default function RegisterPage() {
   const { register, error, setError } = useAuth();
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState("");
   const [passwordConfirm, setPasswordConfirm] = React.useState("");
 
   function handleSave() {
@@ -20,6 +24,7 @@ export default function RegisterPage() {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirm", passwordConfirm);
+    formData.append("username", username);
     register(formData);
   }
   console.log(email, password, passwordConfirm);
@@ -37,11 +42,14 @@ export default function RegisterPage() {
           <div className="screen__content">
             <div className="login">
               <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
                 <input
                   type="text"
                   className="login__input"
-                  placeholder="email"
+                  placeholder="электронная почта"
                   id="email"
                   name="email"
                   autoComplete="email"
@@ -50,24 +58,47 @@ export default function RegisterPage() {
                 />
               </div>
               <div className="login__field">
-                <i className="login__icon fas fa-lock"></i>
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
+                <input
+                  type="text"
+                  className="login__input"
+                  placeholder="username"
+                  id="username"
+                  name="username"
+                  autoComplete="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                />
+              </div>
+              <div className="login__field">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuYfYI8JKYaLPcSUg77gZPArak9tHUp78uQ&usqp=CAU"
+                  className="login__icon fas fa-lock"
+                ></img>
                 <input
                   type="password"
                   className="login__input"
-                  placeholder="password"
+                  placeholder="пароль"
                   name="password"
                   id="password"
                   autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                 />
-                <i className="login__icon fas fa-lock"></i>
-
+              </div>
+              <div className="login__field">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuYfYI8JKYaLPcSUg77gZPArak9tHUp78uQ&usqp=CAU"
+                  className="login__icon fas fa-lock"
+                ></img>
                 <input
                   type="password"
                   required
                   className="login__input"
-                  placeholder="confirm password"
+                  placeholder="подтвердите пароль"
                   id="password-confirm"
                   name="password"
                   autoComplete="current-password"
@@ -76,17 +107,36 @@ export default function RegisterPage() {
                 />
               </div>
               <button className="button login__submit" onClick={handleSave}>
-                <span className="button__text">Sign Up Now</span>
+                <span className="button__text">Зарегистрироваться</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
+              <div className="logInCss">
+                <a onClick={() => navigate("/login")}>
+                  Уже есть аккаунт? Войти
+                </a>
+              </div>
             </div>
-            <a onClick={() => navigate("/login")}>Already sign up? Sign in</a>
             <div className="social-login">
-              <h3>log in via</h3>
+              <h3>Войти через</h3>
               <div className="social-icons">
-                <a href="#" className="social-login__icon fab fa-instagram"></a>
-                <a href="#" className="social-login__icon fab fa-facebook"></a>
-                <a href="#" className="social-login__icon fab fa-twitter"></a>
+                <a href="#">
+                  <img
+                    src={facebook}
+                    className="social-login__icon fab fa-facebook"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={whatsapp}
+                    className="social-login__icon fab fa-twitter"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={telegram}
+                    className="social-login__icon fab fa-instagram"
+                  ></img>
+                </a>
               </div>
             </div>
           </div>

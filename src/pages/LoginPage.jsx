@@ -2,9 +2,12 @@ import * as React from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "@mui/material";
+import facebook from "../components/icons/icons8-facebook-64.png";
+import whatsapp from "../components/icons/icons8-whatsapp-64.png";
+import telegram from "../components/icons/icons8-telegram-app-64.png";
 
 export default function LoginPage() {
-  const { login, error, setError } = useAuth();
+  const { login, error, setError, checkUser } = useAuth();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -27,11 +30,14 @@ export default function LoginPage() {
             {error ? <Alert severity="error">{error}</Alert> : null}
             <div className="login">
               <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
+                <img
+                  src="http://cdn.onlinewebfonts.com/svg/img_568656.png"
+                  className="login__icon fas fa-user"
+                ></img>
                 <input
                   type="text"
                   className="login__input"
-                  placeholder="email"
+                  placeholder="электронная почта"
                   id="email"
                   name="email"
                   autoComplete="email"
@@ -40,11 +46,14 @@ export default function LoginPage() {
                 />
               </div>
               <div className="login__field">
-                <i className="login__icon fas fa-lock"></i>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuYfYI8JKYaLPcSUg77gZPArak9tHUp78uQ&usqp=CAU"
+                  className="login__icon fas fa-lock"
+                ></img>
                 <input
                   type="password"
                   className="login__input"
-                  placeholder="password"
+                  placeholder="пароль"
                   name="password"
                   id="password"
                   autoComplete="current-password"
@@ -54,20 +63,37 @@ export default function LoginPage() {
                 <i className="login__icon fas fa-lock"></i>
               </div>
               <button className="button login__submit" onClick={handleSave}>
-                <span className="button__text">Sign in</span>
+                <span className="button__text">Войти</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </div>
-            <a onClick={() => navigate("/register")}>
-              Already have an account? Sign up
-            </a>
-            <a onClick={() => navigate("/changepass")}>Forgot password?</a>
-            <div className="social-login">
-              <h3>log in via</h3>
+            <div className="btnForgot">
+              <a className="registerCss" onClick={() => navigate("/register")}>
+                Зарегистрироваться
+              </a>
+              <a onClick={() => navigate("/changepass")}>Забыли пароль?</a>
+            </div>
+            <div className="social-loginLog">
+              <h3>Войти через</h3>
               <div className="social-icons">
-                <a href="#" className="social-login__icon fab fa-instagram"></a>
-                <a href="#" className="social-login__icon fab fa-facebook"></a>
-                <a href="#" className="social-login__icon fab fa-twitter"></a>
+                <a href="#">
+                  <img
+                    src={facebook}
+                    className="social-login__icon fab fa-facebook"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={whatsapp}
+                    className="social-login__icon fab fa-twitter"
+                  ></img>
+                </a>
+                <a href="#">
+                  <img
+                    src={telegram}
+                    className="social-login__icon fab fa-instagram"
+                  ></img>
+                </a>
               </div>
             </div>
           </div>

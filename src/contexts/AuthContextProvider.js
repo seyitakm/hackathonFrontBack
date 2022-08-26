@@ -39,14 +39,50 @@ const AuthContextProvider = ({ children }) => {
       setError([error.response.data.detail]);
     }
   };
-
+  const forgot_password = async (formData, email) => {
+    try {
+      const result = await axios.post(
+        `${API}account/forgot_password/`,
+        formData
+      );
+      console.log(result.data);
+      setUser(email);
+      navigate("/login");
+    } catch (error) {
+      console.log([error.response.data.detail]);
+      setError([error.response.data.detail]);
+    }
+  };
+  const change_password = async (formData) => {
+    try {
+      let token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      console.log(Authorization);
+      const result = await axios.patch(
+        `${API}account/change-password/`,
+        formData,
+        { headers: { Authorization } }
+      );
+      localStorage.setItem(
+        "token",
+        JSON.stringify({ refresh: token.refresh, access: result.data.access })
+      );
+      let email = localStorage.getItem("email");
+      setUser(email);
+      // console.log(result.data);
+      navigate("/login");
+    } catch (error) {
+      console.log([error.response.data.detail]);
+      setError([error.response.data.detail]);
+    }
+  };
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
     try {
-      const Authorization = `Bearer ${token.acces}`;
+      const Authorization = `Bearer ${token.access}`;
 
       let result = await axios.post(
-        `${API}account/token/refresh`,
+        `${API}account/api/token/refresh/`,
         {
           refresh: token.refresh,
         },
@@ -56,8 +92,8 @@ const AuthContextProvider = ({ children }) => {
         "token",
         JSON.stringify({ refresh: token.refresh, access: result.data.access })
       );
-      let username = localStorage.getItem("username");
-      setUser(username);
+      let email = localStorage.getItem("email");
+      setUser(email);
     } catch (error) {
       logout();
     }
@@ -69,9 +105,26 @@ const AuthContextProvider = ({ children }) => {
     setUser("");
     navigate("/login");
   }
+  async function checkUser() {
+    let userA = await axios.get(`${API}account/users/username`);
+    console.log(userA.data);
+    localStorage.setItem("userUsername", JSON.stringify(userA.data));
+  }
+
   return (
     <authContext.Provider
-      value={{ register, login, checkAuth, logout, setError, error, user }}
+      value={{
+        register,
+        login,
+        checkAuth,
+        logout,
+        setError,
+        forgot_password,
+        checkUser,
+        change_password,
+        error,
+        user,
+      }}
     >
       {children}
     </authContext.Provider>
