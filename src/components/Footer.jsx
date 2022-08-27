@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="section1">
             <ul id="footer-menu">
               <li>
-                <a href="#">Прайс лист</a>
+                <a href="/pricelist">Прайс лист</a>
               </li>
               <li>
                 <a href="#">Анализы</a>
