@@ -354,7 +354,7 @@ const PriceList = () => {
           </Box>
         </Box>
 
-        <Box>
+        <Box style={{ marginBottom: 50 }}>
           <Box className="terapevt">
             <div className="title-terapevt">
               <strong>Терапевт</strong>

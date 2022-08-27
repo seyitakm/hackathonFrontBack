@@ -16,18 +16,12 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 
-import { Button, createTheme, ThemeProvider } from "@mui/material";
+import { Button, createTheme } from "@mui/material";
 import { useAuth } from "../contexts/AuthContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const theme = createTheme({
-    palette: {
-      primary: { main: "#5049ac" },
-    },
-  });
 
   const { user, logout, checkAuth } = useAuth();
 
@@ -164,7 +158,7 @@ const Navbar = () => {
                 <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/services")}>
-                <Typography textAlign="center">Сервисы</Typography>
+                <Typography textAlign="center">Услуги</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <Typography textAlign="center">Контакты</Typography>
@@ -214,7 +208,7 @@ const Navbar = () => {
               <Typography textAlign="center">Специалисты</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/services")}>
-              <Typography textAlign="center">Сервисы</Typography>
+              <Typography textAlign="center">Услуги</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <Typography textAlign="center">Контакты</Typography>
@@ -252,7 +246,7 @@ const Navbar = () => {
                 </IconButton>
               </Tooltip>
               <Menu
-                sx={{ mt: "75px" }}
+                sx={{ mt: "75px", width: "350px !important" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
@@ -267,18 +261,38 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <Typography
-                  sx={{ alignSelf: "center", cursor: "pointer" }}
-                  onClick={() => navigate("/user")}
-                >
-                  {user}
-                </Typography>
-                <MenuItem onClick={() => navigate("/admin")}>
-                  <Typography textAlign="center">Админ</Typography>
-                </MenuItem>
-                <MenuItem onClick={logout}>
-                  <Typography textAlign="center">Выход</Typography>
-                </MenuItem>
+                {user == "beksbor05@gmail.com" ||
+                user == "seyit200020@gmail.com" ? (
+                  <>
+                    <Typography
+                      sx={{ alignSelf: "center", cursor: "pointer" }}
+                      onClick={() => navigate("/user")}
+                    >
+                      {user}
+                    </Typography>
+
+                    <MenuItem onClick={() => navigate("/admin")}>
+                      <Typography textAlign="center">Админ</Typography>
+                    </MenuItem>
+
+                    <MenuItem onClick={logout}>
+                      <Typography textAlign="center">Выход</Typography>
+                    </MenuItem>
+                  </>
+                ) : (
+                  <>
+                    <Typography
+                      sx={{ alignSelf: "center", cursor: "pointer" }}
+                      onClick={() => navigate("/user")}
+                    >
+                      {user}
+                    </Typography>
+                    <MenuItem onClick={logout}>
+                      <Typography textAlign="center">Выход</Typography>
+                    </MenuItem>
+                  </>
+                )}
+
                 {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import SpecialtiesContextProvider from "./contexts/SpecialtiesContextProvider";
 import CartContextProvider from "./contexts/CartContextProvider";
 
+import "../src/components/Styles/HomePage.css";
+
 function App() {
   return (
     <>
