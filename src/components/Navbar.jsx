@@ -169,8 +169,8 @@ const Navbar = () => {
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-                <Typography textAlign="center">Расписание врачей</Typography>
+              <MenuItem className="navs" onClick={() => navigate("/cart")}>
+                <Typography textAlign="center">Записи</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
                 <Typography textAlign="center">Прайс Лист</Typography>
@@ -219,8 +219,8 @@ const Navbar = () => {
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <Typography textAlign="center">Контакты</Typography>
             </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/schedule")}>
-              <Typography textAlign="center">Расписание врачей</Typography>
+            <MenuItem className="navs" onClick={() => navigate("/cart")}>
+              <Typography textAlign="center">Записи</Typography>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
               <Typography textAlign="center">Прайс лист</Typography>

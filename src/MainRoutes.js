@@ -15,6 +15,7 @@ import PriceList from "./pages/PriceList";
 import RegisterPage from "./pages/RegisterPage";
 import Services from "./pages/Services";
 import AboutUserPage from "./pages/AboutUserPage";
+import CartPage from "./pages/CartPage";
 
 const MainRoutes = () => {
   return (
@@ -34,6 +35,7 @@ const MainRoutes = () => {
       <Route path="/pricelist" element={<PriceList />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/schedule" element={<DoctorsSchedule />} />
+      <Route path="/cart" element={<CartPage />} />
     </Routes>
   );
 };

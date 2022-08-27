@@ -20,7 +20,7 @@ const Footer = () => {
                 <a href="#">Анализы</a>
               </li>
               <li>
-                <a href="#">График работы</a>
+                <a href="/schedule">График работы</a>
               </li>
               <li>
                 <a href="#">Новости</a>
