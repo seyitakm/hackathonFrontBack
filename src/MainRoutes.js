@@ -19,6 +19,7 @@ import SpecDetails from "./components/products/SpecDetails";
 // import EditSpec from "./components/products/EditSpec";
 
 import AboutUserPage from "./pages/AboutUserPage";
+import CartPage from "./pages/CartPage";
 
 const MainRoutes = () => {
   return (
@@ -39,6 +40,8 @@ const MainRoutes = () => {
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/details" element={<SpecDetails />} />
       <Route path="/schedule" element={<DoctorsSchedule />} />
+      <Route path="/cart" element={<CartPage />} />
+
       {/* <Route path="/edit" element={<EditSpec />} /> */}
     </Routes>
   );
