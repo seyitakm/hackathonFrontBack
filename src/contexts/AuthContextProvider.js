@@ -10,6 +10,7 @@ const API = "https://makers-clinic.herokuapp.com/";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
+  const [username, setUsername] = useState();
 
   const navigate = useNavigate();
 
@@ -25,13 +26,15 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const login = async (formData, email) => {
+  const login = async (formData, email, username) => {
     try {
       const result = await axios.post(`${API}account/login/`, formData);
       console.log(result.data);
 
       localStorage.setItem("token", JSON.stringify(result.data));
       localStorage.setItem("email", email);
+      localStorage.setItem("username", username);
+      setUsername(username);
       setUser(email);
       navigate("/");
     } catch (error) {
@@ -94,6 +97,8 @@ const AuthContextProvider = ({ children }) => {
       );
       let email = localStorage.getItem("email");
       setUser(email);
+      let username = localStorage.getItem("username");
+      setUsername(username);
     } catch (error) {
       logout();
     }
@@ -124,6 +129,7 @@ const AuthContextProvider = ({ children }) => {
         change_password,
         error,
         user,
+        username,
       }}
     >
       {children}
