@@ -14,13 +14,13 @@ const Footer = () => {
           <div className="section1">
             <ul id="footer-menu">
               <li>
-                <a href="#">Прайс лист</a>
+                <a href="/pricelist">Прайс лист</a>
               </li>
               <li>
                 <a href="#">Анализы</a>
               </li>
               <li>
-                <a href="#">График работы</a>
+                <a href="/schedule">График работы</a>
               </li>
               <li>
                 <a href="#">Новости</a>
@@ -46,6 +46,7 @@ const Footer = () => {
               Внимание! Цены на сайте и в клинике могут различаться. Просьба
               уточнять цены у администраторов клиники
               <br />
+              <br />
               Внимание! Оставить заявку на прием, вопрос или предложение в
               мессенджерах Вы можете и в нерабочее время. Мы обязательно
               свяжемся с Вами!
@@ -69,7 +70,7 @@ const Footer = () => {
                 <a href="#">megalab2009@yandex.com</a>
               </li>
               <li>
-                <a href="">
+                <a href="https://ru-ru.facebook.com/">
                   <img src={facebook_icon} alt="" />
                 </a>
                 <a href="">

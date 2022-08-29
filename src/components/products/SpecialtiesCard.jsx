@@ -7,10 +7,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 
 export default function SpecialtiesCard({ item }) {
   const { deleteSpec, editSpec } = useProducts();
   const navigate = useNavigate();
+  const { user } = useAuth();
   return (
     // <Card
     //   sx={{
@@ -95,36 +97,66 @@ export default function SpecialtiesCard({ item }) {
             <div
               style={{
                 display: "flex",
+                flexDirection: "row",
                 justifyContent: "center",
-                alignItems: "center",
+                // alignItems: "center",
               }}
             >
-              <Button
-                style={{ marginTop: 5 }}
-                size="small"
-                onClick={() => navigate("/details")}
-              >
-                Узнать Больше
-              </Button>
+              {user == "beksbor05@gmail.com" ||
+              user == "seyit200020@gmail.com" ||
+              user == "admin@gmail.com" ? (
+                <div>
+                  <Button
+                    style={{ marginTop: 5, color: "red" }}
+                    size="small"
+                    onClick={() => deleteSpec(item.id)}
+                  >
+                    Удалить
+                  </Button>
 
-              <Button
-                style={{ marginTop: 5, color: "red" }}
-                size="small"
-                onClick={() => deleteSpec(item.id)}
-              >
-                Удалить
-              </Button>
-
-              <Button
-                style={{ marginTop: 5, color: "#5049ac" }}
-                size="small"
-                onClick={() => {
-                  editSpec(item.id);
-                  navigate("/edit");
-                }}
-              >
-                Изменить
-              </Button>
+                  <Button
+                    style={{ marginTop: 5, color: "#5049ac" }}
+                    size="small"
+                    onClick={() => {
+                      editSpec(item.id);
+                      navigate("/edit");
+                    }}
+                  >
+                    Изменить
+                  </Button>
+                  <Button
+                    style={{ marginTop: 5 }}
+                    size="small"
+                    onClick={() => navigate("/details")}
+                  >
+                    Узнать Больше
+                  </Button>
+                  <Button
+                    style={{ marginTop: 5 }}
+                    size="small"
+                    onClick={() => navigate("/details")}
+                  >
+                    Записаться
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Button
+                    style={{ marginTop: 5 }}
+                    size="small"
+                    onClick={() => navigate("/details")}
+                  >
+                    Узнать Больше
+                  </Button>
+                  <Button
+                    style={{ marginTop: 5 }}
+                    size="small"
+                    onClick={() => navigate("/details")}
+                  >
+                    Записаться
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         </div>
