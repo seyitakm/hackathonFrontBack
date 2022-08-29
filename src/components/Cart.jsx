@@ -35,13 +35,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function Cart() {
-  const {
-    getCart,
-    changeProductCount,
-    deleteProductInCart,
-    cart,
-    addProductsToCart,
-  } = useCart();
+  const { getCart, changeSpecsCount, deleteSpecsInCart, cart, addSpecsToCart } =
+    useCart();
 
   React.useEffect(() => {
     getCart();
@@ -77,13 +72,13 @@ export default function Cart() {
               Name
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Type
+              Last Name
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
               Description
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Price
+              Experience
             </StyledTableCell>
             <StyledTableCell
               sx={
@@ -96,21 +91,9 @@ export default function Cart() {
               }
               align="right"
             >
-              Count
+              Number
             </StyledTableCell>
-            <StyledTableCell
-              sx={
-                (trHeadStyle,
-                {
-                  "@media (max-width:600px)": {
-                    display: "none",
-                  },
-                })
-              }
-              align="right"
-            >
-              Sub Price
-            </StyledTableCell>
+
             <StyledTableCell sx={trHeadStyle} align="right">
               {" "}
               ---{" "}
@@ -118,15 +101,17 @@ export default function Cart() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cart?.products.map((row) => (
+          {cart?.specs.map((row) => (
             <StyledTableRow key={row.item.id}>
               <StyledTableCell component="th" scope="row">
-                <img src={row.item.picture} alt="" width="70" />
+                <img src={row.item.image} alt="" width="70" />
               </StyledTableCell>
               <StyledTableCell component="th" scope="row">
-                {row.item.name}
+                {row.item.first_name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.item.type}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.item.last_name}
+              </StyledTableCell>
               <StyledTableCell
                 align="right"
                 sx={{
@@ -146,22 +131,23 @@ export default function Cart() {
                   },
                 }}
               >
-                {row.item.price}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                <TextField
-                  type="number"
-                  value={row.count}
-                  onChange={(e) =>
-                    changeProductCount(e.target.value, row.item.id)
-                  }
-                />
+                {row.item.experience}
               </StyledTableCell>
 
-              <StyledTableCell align="right">{row.subPrice}</StyledTableCell>
+              <StyledTableCell
+                align="right"
+                sx={{
+                  "@media (max-width:900px)": {
+                    display: "none",
+                  },
+                }}
+              >
+                {row.item.number}
+              </StyledTableCell>
+
               <StyledTableCell align="right">
                 <Button
-                  onClick={() => deleteProductInCart(row.item.id)}
+                  onClick={() => deleteSpecsInCart(row.item.id)}
                   startIcon={<DeleteIcon sx={{ color: "#666699" }} />}
                 ></Button>
               </StyledTableCell>
@@ -172,7 +158,7 @@ export default function Cart() {
       <Box sx={{ m: 5 }}>
         <Typography variant="h6" component="div">
           Total price: {cart?.totalPrice}
-          <Button onClick={() => cartCleaner()}>BUY NOW</Button>
+          <Button onClick={() => cartCleaner()}>Записаться</Button>
         </Typography>
       </Box>
     </TableContainer>

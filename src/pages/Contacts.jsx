@@ -1,8 +1,10 @@
 import React from "react";
 import "../components/Styles/Contacts.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
 
 const Contacts = () => {
+  const navigate = useNavigate();
   const position = [42.82881661578283, 74.58419582287019];
   return (
     <div>
@@ -57,7 +59,12 @@ const Contacts = () => {
               </ul>
             </div>
             <div className="contacts-btn">
-              <button className="btn-contacts">Запись на прием</button>
+              <button
+                className="btn-contacts"
+                onClick={() => navigate("/spec")}
+              >
+                Запись на прием
+              </button>
               <button className="btn-contacts1">Получить консультацию</button>
             </div>
           </div>
