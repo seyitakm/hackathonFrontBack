@@ -36,10 +36,11 @@ const EditSpec = () => {
   }, [oneProduct]);
 
   const handleInp = (e) => {
-    if (e.target.name === "image") {
+    if (e.target.name === "files") {
+      console.log(e.target.files[0]);
       setSpec({
         ...spec,
-        [e.target.name]: e.target.file[0],
+        [e.target.name]: e.target.files[0],
       });
     } else if (e.target.name === "categories") {
       setSpec({
@@ -136,11 +137,12 @@ const EditSpec = () => {
         {/* <TextField
           sx={{ m: 1 }}
           id="standard-basic"
-          label="Category"
+          label="Image"
           variant="outlined"
           fullWidth
-          name="categories"
-          value={spec.categories}
+          name="picture"
+          onChange={handleInp}
+          value={spec.image}
         /> */}
         <FormControl sx={{ mt: 1 }} fullWidth>
           <InputLabel id="demo-simple-select-label">Specs</InputLabel>
@@ -163,10 +165,10 @@ const EditSpec = () => {
         <input
           style={{ marginTop: 10 }}
           type="file"
-          // hidden
-          name="file"
+          name="files"
           onChange={handleInp}
         />
+
         <Button
           sx={{
             m: 1,
@@ -193,7 +195,6 @@ const EditSpec = () => {
           Отмена
         </Button>
       </Box>
-      {/* ))} */}
     </>
   );
 };
