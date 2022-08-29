@@ -4,7 +4,7 @@ import "./Styles/TabsHome.css";
 const TabsHome = () => {
   return (
     <div className="tabs-box">
-      <article class="tabs">
+      <article className="tabs">
         <section id="tab1">
           <h2>
             <a href="#tab1">Направления</a>
