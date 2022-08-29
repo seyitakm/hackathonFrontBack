@@ -16,7 +16,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Services from "./pages/Services";
 
 import SpecDetails from "./components/products/SpecDetails";
-// import EditSpec from "./components/products/EditSpec";
+import EditSpec from "./components/products/EditSpec";
 
 import AboutUserPage from "./pages/AboutUserPage";
 import CartPage from "./pages/CartPage";
@@ -42,7 +42,7 @@ const MainRoutes = () => {
       <Route path="/schedule" element={<DoctorsSchedule />} />
       <Route path="/cart" element={<CartPage />} />
 
-      {/* <Route path="/edit" element={<EditSpec />} /> */}
+      <Route path="/edit/:id" element={<EditSpec />} />
     </Routes>
   );
 };

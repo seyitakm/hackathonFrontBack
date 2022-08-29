@@ -41,7 +41,6 @@ export default function Cart() {
   React.useEffect(() => {
     getCart();
   }, []);
-  console.log(cart);
 
   function cartCleaner() {
     localStorage.removeItem("cart");

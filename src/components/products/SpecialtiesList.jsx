@@ -9,6 +9,7 @@ const SpecialtiesList = () => {
   const { getSpecs, specs, pages } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
+
   const [search, setSearch] = useState(searchParams.get("first_name") || "");
 
   useEffect(() => {
