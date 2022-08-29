@@ -58,7 +58,6 @@ const AddSpec = () => {
     newProduct.append("image", product.image);
     addSpecs(newProduct);
   }
-  console.log(category);
   return (
     <Box
       sx={{

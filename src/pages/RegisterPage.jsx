@@ -27,7 +27,6 @@ export default function RegisterPage() {
     formData.append("username", username);
     register(formData);
   }
-  console.log(email, password, passwordConfirm);
   React.useEffect(() => {
     setError(false);
   }, []);

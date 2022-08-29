@@ -157,9 +157,9 @@ const Navbar = () => {
               <MenuItem className="navs" onClick={() => navigate("/spec")}>
                 <Typography textAlign="center">Специалисты</Typography>
               </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/services")}>
+              {/* <MenuItem className="navs" onClick={() => navigate("/services")}>
                 <Typography textAlign="center">Услуги</Typography>
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
@@ -207,9 +207,9 @@ const Navbar = () => {
             <MenuItem className="navs" onClick={() => navigate("/spec")}>
               <Typography textAlign="center">Специалисты</Typography>
             </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/services")}>
+            {/* <MenuItem className="navs" onClick={() => navigate("/services")}>
               <Typography textAlign="center">Услуги</Typography>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <Typography textAlign="center">Контакты</Typography>
             </MenuItem>
@@ -263,7 +263,7 @@ const Navbar = () => {
               >
                 {user == "beksbor05@gmail.com" ||
                 user == "seyit200020@gmail.com" ? (
-                  <>
+                  <div>
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
                       onClick={() => navigate("/user")}
@@ -278,9 +278,9 @@ const Navbar = () => {
                     <MenuItem onClick={logout}>
                       <Typography textAlign="center">Выход</Typography>
                     </MenuItem>
-                  </>
+                  </div>
                 ) : (
-                  <>
+                  <div>
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
                       onClick={() => navigate("/user")}
@@ -290,7 +290,7 @@ const Navbar = () => {
                     <MenuItem onClick={logout}>
                       <Typography textAlign="center">Выход</Typography>
                     </MenuItem>
-                  </>
+                  </div>
                 )}
 
                 {/* {settings.map((setting) => (
