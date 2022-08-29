@@ -29,6 +29,7 @@
 
 .navs-search {
   color: #605aa2 !important;
+  position: relative !important;
 }
 
 .navs-search:hover {

@@ -126,7 +126,7 @@ const CartContextProvider = ({ children }) => {
       return newCart.length > 0 ? true : false;
     } else {
       cart = {
-        product: [],
+        specs: [],
         totalPrice: 0,
       };
     }

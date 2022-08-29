@@ -8,9 +8,11 @@ import Typography from "@mui/material/Typography";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import { useCart } from "../../contexts/CartContextProvider";
 
 export default function SpecialtiesCard({ item }) {
   const { deleteSpec, editSpec } = useProducts();
+  const { addSpecsToCart } = useCart();
   const navigate = useNavigate();
   const { user } = useAuth();
   return (
@@ -151,7 +153,10 @@ export default function SpecialtiesCard({ item }) {
                   <Button
                     style={{ marginTop: 5 }}
                     size="small"
-                    onClick={() => navigate("/details")}
+                    onClick={() => {
+                      navigate("/cart");
+                      addSpecsToCart(item);
+                    }}
                   >
                     Записаться
                   </Button>

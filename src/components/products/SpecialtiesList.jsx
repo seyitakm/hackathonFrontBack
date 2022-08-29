@@ -1,4 +1,4 @@
-import { Pagination } from "@mui/material";
+import { Pagination, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -9,12 +9,17 @@ const SpecialtiesList = () => {
   const { getSpecs, specs, pages } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(specs);
+  const [search, setSearch] = useState(searchParams.get("first_name") || "");
+
   useEffect(() => {
     getSpecs();
   }, []);
 
-  // console.log(products);
+  useEffect(() => {
+    setSearchParams({
+      first_name: search,
+    });
+  }, [search]);
 
   useEffect(() => {
     getSpecs();
@@ -40,7 +45,14 @@ const SpecialtiesList = () => {
           <SpecialtiesCard key={item.id} item={item} />
         ))}
       </Box>
-
+      {/* <TextField
+        id="outlined-basic"
+        label="Outlined"
+        variant="outlined"
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      /> */}
       <Box sx={{ mt: 5, display: "flex", justifyContent: "center" }}>
         <Pagination
           count={pages}

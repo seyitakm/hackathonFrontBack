@@ -50,7 +50,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         `${JSON_API_DOCS}doctor/${window.location.search}`,
         config
       );
-      console.log(res.data.results);
+      console.log(window.location.search);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -90,7 +90,11 @@ const SpecialtiesContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(`${API}doctor/doctor/`, newProduct, config);
+      const res = await axios.post(
+        `${JSON_API_DOCS}doctor/`,
+        newProduct,
+        config
+      );
       console.log(res);
 
       navigate("/spec");
@@ -98,6 +102,22 @@ const SpecialtiesContextProvider = ({ children }) => {
       console.log(error);
     }
   }
+
+  // const searchSpecs = async (order, page, firstName) => {
+  //   const token = JSON.parse(localStorage.getItem("token"));
+  //   const Authorization = `Bearer ${token.access}`;
+  //   const config = {
+  //     headers: {
+  //       Authorization,
+  //     },
+  //   };
+
+  //   let res = await axios(
+  //     `https://makers-clinic.herokuapp.com/doctor/doctor/search/?ordering=${order}&page=${page}&first_name=${firstName}`,
+  //     config
+  //   );
+  //   return res.data;
+  // };
 
   // async function editSpec(id) {
   //   try {

@@ -16,14 +16,17 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 
-import { Button, createTheme } from "@mui/material";
+import { Badge, Button, createTheme, Paper } from "@mui/material";
 import { useAuth } from "../contexts/AuthContextProvider";
+import { useCart } from "../contexts/CartContextProvider";
+import { useProducts } from "../contexts/SpecialtiesContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const { user, logout, checkAuth } = useAuth();
+  const { checkSpecsInCart } = useCart();
 
   const navigate = useNavigate();
 
@@ -163,7 +166,11 @@ const Navbar = () => {
               <MenuItem className="navs" onClick={() => navigate("/contacts")}>
                 <Typography textAlign="center">Контакты</Typography>
               </MenuItem>
-              <MenuItem className="navs" onClick={() => navigate("/cart")}>
+              <MenuItem
+                className="navs"
+                onClick={() => navigate("/cart")}
+                onChange={() => checkSpecsInCart()}
+              >
                 <Typography textAlign="center">Записи</Typography>
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
@@ -213,8 +220,20 @@ const Navbar = () => {
             <MenuItem className="navs" onClick={() => navigate("/contacts")}>
               <Typography textAlign="center">Контакты</Typography>
             </MenuItem>
-            <MenuItem className="navs" onClick={() => navigate("/cart")}>
-              <Typography textAlign="center">Записи</Typography>
+            <MenuItem
+              className="navs"
+              onClick={() => navigate("/cart")}
+              onChange={() => checkSpecsInCart()}
+            >
+              <Badge
+                badgeContent={
+                  JSON.parse(localStorage.getItem("cart"))?.specs.length
+                }
+                color="secondary"
+                showZero
+              >
+                <Typography textAlign="center">Записи</Typography>
+              </Badge>
             </MenuItem>
             <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
               <Typography textAlign="center">Прайс лист</Typography>
@@ -263,7 +282,7 @@ const Navbar = () => {
               >
                 {user == "beksbor05@gmail.com" ||
                 user == "seyit200020@gmail.com" ? (
-                  <>
+                  <div>
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
                       onClick={() => navigate("/user")}
@@ -278,9 +297,9 @@ const Navbar = () => {
                     <MenuItem onClick={logout}>
                       <Typography textAlign="center">Выход</Typography>
                     </MenuItem>
-                  </>
+                  </div>
                 ) : (
-                  <>
+                  <div>
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
                       onClick={() => navigate("/user")}
@@ -290,7 +309,7 @@ const Navbar = () => {
                     <MenuItem onClick={logout}>
                       <Typography textAlign="center">Выход</Typography>
                     </MenuItem>
-                  </>
+                  </div>
                 )}
 
                 {/* {settings.map((setting) => (
