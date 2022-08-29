@@ -23,7 +23,6 @@ const EditSpec = () => {
   } = useProducts();
 
   const [spec, setSpec] = useState(oneProduct);
-  console.log(spec);
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -40,7 +39,12 @@ const EditSpec = () => {
     if (e.target.name === "image") {
       setSpec({
         ...spec,
-        [e.target.name]: e.target.files[0],
+        [e.target.name]: e.target.file[0],
+      });
+    } else if (e.target.name === "categories") {
+      setSpec({
+        ...spec,
+        [e.target.name]: e.target.title,
       });
     } else {
       setSpec({
@@ -56,7 +60,6 @@ const EditSpec = () => {
 
   return (
     <>
-      {/* {oneProduct?.map((item) => ( */}
       <Box
         sx={{
           width: "40vw",
@@ -149,9 +152,9 @@ const EditSpec = () => {
             value={spec.categories}
             name="categories"
           >
-            {category?.map((i) => (
-              <MenuItem value={i.id} key={i.id}>
-                {i.last_name}
+            {category?.map((item) => (
+              <MenuItem value={item.title} key={item.id} onChange={handleInp}>
+                {item.title}
               </MenuItem>
             ))}
           </Select>
@@ -161,7 +164,7 @@ const EditSpec = () => {
           style={{ marginTop: 10 }}
           type="file"
           // hidden
-          name="image"
+          name="file"
           onChange={handleInp}
         />
         <Button
@@ -171,7 +174,10 @@ const EditSpec = () => {
           variant="outlined"
           fullWidth
           size="large"
-          onClick={() => saveEditedProduct(spec)}
+          onClick={() => {
+            saveEditedProduct(spec);
+            navigate("/spec");
+          }}
         >
           Изменить
         </Button>

@@ -10,13 +10,13 @@ const API = "https://makers-clinic.herokuapp.com/";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
+  const [username, setUsername] = useState();
 
   const navigate = useNavigate();
 
   const register = async (formData) => {
     try {
       const result = await axios.post(`${API}account/register/`, formData);
-      console.log(result);
       navigate("/activation");
     } catch (error) {
       console.log(Object.values(error.response.data).flat(2)[0]);
@@ -25,13 +25,14 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const login = async (formData, email) => {
+  const login = async (formData, email, username) => {
     try {
       const result = await axios.post(`${API}account/login/`, formData);
-      console.log(result.data);
 
       localStorage.setItem("token", JSON.stringify(result.data));
       localStorage.setItem("email", email);
+      localStorage.setItem("username", username);
+      setUsername(username);
       setUser(email);
       navigate("/");
     } catch (error) {
@@ -45,7 +46,6 @@ const AuthContextProvider = ({ children }) => {
         `${API}account/forgot_password/`,
         formData
       );
-      console.log(result.data);
       setUser(email);
       navigate("/login");
     } catch (error) {
@@ -57,7 +57,6 @@ const AuthContextProvider = ({ children }) => {
     try {
       let token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
-      console.log(Authorization);
       const result = await axios.patch(
         `${API}account/change-password/`,
         formData,
@@ -94,6 +93,8 @@ const AuthContextProvider = ({ children }) => {
       );
       let email = localStorage.getItem("email");
       setUser(email);
+      let username = localStorage.getItem("username");
+      setUsername(username);
     } catch (error) {
       logout();
     }
@@ -107,7 +108,6 @@ const AuthContextProvider = ({ children }) => {
   }
   async function checkUser() {
     let userA = await axios.get(`${API}account/users/username`);
-    console.log(userA.data);
     localStorage.setItem("userUsername", JSON.stringify(userA.data));
   }
 
@@ -124,6 +124,7 @@ const AuthContextProvider = ({ children }) => {
         change_password,
         error,
         user,
+        username,
       }}
     >
       {children}

@@ -71,7 +71,6 @@ const SpecialtiesContextProvider = ({ children }) => {
       };
 
       const res = await axios(`${API}doctor/categories/`, config);
-      console.log(res);
       dispatch({
         type: "GET_CATEGORIES",
         payload: res.data.results,
@@ -91,7 +90,6 @@ const SpecialtiesContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}doctor/doctor/`, newProduct, config);
-      console.log(res);
 
       navigate("/spec");
     } catch (error) {
@@ -139,7 +137,7 @@ const SpecialtiesContextProvider = ({ children }) => {
     }
   }
 
-  async function saveEditedProduct(id) {
+  async function saveEditedProduct(newProduct) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -148,8 +146,11 @@ const SpecialtiesContextProvider = ({ children }) => {
           Authorization,
         },
       };
-
-      await axios.patch(`${API}doctor/doctor/${id}/`, config);
+      await axios.patch(
+        `${API}doctor/doctor/${newProduct.id}/`,
+        newProduct,
+        config
+      );
       getSpecs();
     } catch (error) {
       console.log(error);

@@ -58,7 +58,6 @@ const AddSpec = () => {
     newProduct.append("image", product.image);
     addSpecs(newProduct);
   }
-  console.log(category);
   return (
     <Box
       sx={{
@@ -153,21 +152,16 @@ const AddSpec = () => {
           name="categories"
         >
           {category?.map((item) => (
-            <MenuItem value={item.id} key={item.id}>
-              {item.last_name}
+            <MenuItem value={item.id} key={item.id} onChange={handleInp}>
+              {item.title}
             </MenuItem>
           ))}
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={10}>Doctor</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
 
       <input
         style={{ marginTop: 10 }}
         type="file"
-        // hidden
         name="image"
         onChange={handleInp}
       />

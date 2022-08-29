@@ -17,7 +17,7 @@ const ChangePassPage = () => {
   }
 
   React.useEffect(() => {
-    setError("");
+    setError(false);
   }, []);
   return (
     <div className="bodyRegister">
