@@ -4,24 +4,17 @@ import "../components/Styles/UserSettings.css";
 import { useAuth } from "../contexts/AuthContextProvider";
 
 const AboutUserPage = () => {
-  const { change_password, error, setError, user } = useAuth();
+  const { change_password, error, setError, user, username } = useAuth();
   const [email, setEmail] = React.useState("");
   const [old_password, setOldPassword] = React.useState("");
   const [new_password, setNewPassword] = React.useState("");
 
   function handleSave() {
     let formData = new FormData();
-    // formData.append("email", email);
     formData.append("old_password", old_password);
     formData.append("new_password", new_password);
     change_password(formData);
   }
-
-  //   React.useEffect(() => {
-  //     if (localStorage.getItem("token")) {
-  //       change_password();
-  //     }
-  //   }, []);
 
   React.useEffect(() => {
     setError("");
@@ -80,17 +73,18 @@ const AboutUserPage = () => {
                 <label className="main__input-label">Your name:</label>
                 <input
                   className="main__input"
-                  placeholder="name"
+                  placeholder={username}
                   type="text"
                   disabled
                 />
                 <label className="main__input-label">Your e-mail:</label>
                 <input
                   className="main__input"
-                  placeholder="email"
+                  placeholder={user}
                   type="text"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
+                  disabled
                 />
                 <label className="main__input-label">Your old password:</label>
                 <input
