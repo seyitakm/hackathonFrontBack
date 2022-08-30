@@ -71,7 +71,12 @@ export default function LoginPage() {
               <a className="registerCss" onClick={() => navigate("/register")}>
                 Зарегистрироваться
               </a>
-              <a onClick={() => navigate("/changepass")}>Забыли пароль?</a>
+              <a
+                className="registerCss"
+                onClick={() => navigate("/changepass")}
+              >
+                Забыли пароль?
+              </a>
             </div>
             <div className="social-loginLog">
               <h3>Войти через</h3>
