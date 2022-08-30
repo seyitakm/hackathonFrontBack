@@ -21,23 +21,30 @@ const EditSpec = () => {
     getProductDetails,
     oneProduct,
   } = useProducts();
-
   const [spec, setSpec] = useState(oneProduct);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const { id } = useParams();
-
   useEffect(() => {
     getProductDetails(id);
   }, []);
+
+  useEffect(() => {
+    setSpec({
+      ...spec,
+      image: image,
+    });
+  }, [image]);
 
   useEffect(() => {
     setSpec(oneProduct);
   }, [oneProduct]);
 
   const handleInp = (e) => {
-    if (e.target.name === "file") {
-      console.log(e.target.value);
+    if (e.target.name === "files") {
+      console.log(e.target.files[0]);
+
       setSpec({
         ...spec,
         [e.target.name]: e.target.files[0],
@@ -58,7 +65,6 @@ const EditSpec = () => {
   useEffect(() => {
     getCategories();
   }, []);
-
   return (
     <>
       <Box
@@ -137,11 +143,12 @@ const EditSpec = () => {
         {/* <TextField
           sx={{ m: 1 }}
           id="standard-basic"
-          label="Category"
+          label="Image"
           variant="outlined"
           fullWidth
-          name="categories"
-          value={spec.categories}
+          name="picture"
+          onChange={handleInp}
+          value={spec.image}
         /> */}
         <FormControl sx={{ mt: 1 }} fullWidth>
           <InputLabel id="demo-simple-select-label">Specs</InputLabel>
@@ -164,9 +171,13 @@ const EditSpec = () => {
         <input
           style={{ marginTop: 10 }}
           type="file"
-          name="file"
-          onChange={handleInp}
+          accept="image/png, image/jpeg"
+          name="image"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+          }}
         />
+
         <Button
           sx={{
             m: 1,
@@ -193,7 +204,6 @@ const EditSpec = () => {
           Отмена
         </Button>
       </Box>
-      {/* ))} */}
     </>
   );
 };

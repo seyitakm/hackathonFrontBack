@@ -14,7 +14,7 @@ const CartPage = () => {
             fontSize: "4vw",
           }}
         >
-          My orders
+          Мои Записи
         </h1>
       </div>
       <Cart />

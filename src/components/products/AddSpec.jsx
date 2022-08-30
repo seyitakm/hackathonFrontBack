@@ -75,7 +75,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="First Name"
+        label="Имя"
         variant="outlined"
         fullWidth
         name="first_name"
@@ -85,7 +85,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Last Name"
+        label="Фамилия"
         variant="outlined"
         fullWidth
         name="last_name"
@@ -95,7 +95,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Adress"
+        label="Адрес"
         variant="outlined"
         fullWidth
         name="adress"
@@ -105,7 +105,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Description"
+        label="Описание"
         variant="outlined"
         fullWidth
         name="description"
@@ -115,7 +115,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Experience"
+        label="Опыт"
         variant="outlined"
         fullWidth
         name="experience"
@@ -125,7 +125,7 @@ const AddSpec = () => {
       <TextField
         sx={{ m: 1 }}
         id="standard-basic"
-        label="Number"
+        label="Номер"
         variant="outlined"
         fullWidth
         name="number"
@@ -146,7 +146,7 @@ const AddSpec = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="categories"
+          label="Категории"
           onChange={handleInp}
           value={product.categories}
           name="categories"
@@ -174,7 +174,7 @@ const AddSpec = () => {
         size="large"
         onClick={handleSave}
       >
-        Add Person
+        Добавить
       </Button>
     </Box>
   );

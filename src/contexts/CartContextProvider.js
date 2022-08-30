@@ -3,7 +3,7 @@ import { CART } from "../helpers/consts";
 import {
   calcSubPrice,
   calcTotalPrice,
-  getCountProductsInCart,
+  getCountSpecsInCart,
 } from "../helpers/func";
 
 const cartContext = createContext();
@@ -14,7 +14,7 @@ export const useCart = () => {
 
 const INIT_STATE = {
   cart: JSON.parse(localStorage.getItem("cart")),
-  cartLength: getCountProductsInCart(),
+  cartLength: getCountSpecsInCart(),
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -37,11 +37,11 @@ const CartContextProvider = ({ children }) => {
     if (!cart) {
       localStorage.setItem(
         "cart",
-        JSON.stringify({ products: [], totalPrice: 0 })
+        JSON.stringify({ specs: [], totalPrice: 0 })
       );
 
       cart = {
-        products: [],
+        specs: [],
         totalPrice: 0,
       };
     }
@@ -51,12 +51,12 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  const addProductToCart = (product) => {
+  const addSpecsToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     if (!cart) {
       cart = {
-        products: [],
+        specs: [],
         totalPrice: 0,
       };
     }
@@ -67,19 +67,17 @@ const CartContextProvider = ({ children }) => {
       subPrice: +product.price,
     };
 
-    let productToFind = cart.products.filter(
+    let productToFind = cart.specs.filter(
       (elem) => elem.item.id === product.id
     );
 
     if (productToFind.length === 0) {
-      cart.products.push(newProduct);
+      cart.specs.push(newProduct);
     } else {
-      cart.products = cart.products.filter(
-        (elem) => elem.item.id !== product.id
-      );
+      cart.specs = cart.specs.filter((elem) => elem.item.id !== product.id);
     }
 
-    cart.totalPrice = calcTotalPrice(cart.products);
+    cart.totalPrice = calcTotalPrice(cart.specs);
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -89,11 +87,11 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  function deleteProductInCart(id) {
+  function deleteSpecsInCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    cart.products = cart.products.filter((elem) => elem.item.id !== id);
-    cart.totalPrice = calcTotalPrice(cart.products);
+    cart.specs = cart.specs.filter((elem) => elem.item.id !== id);
+    cart.totalPrice = calcTotalPrice(cart.specs);
     localStorage.setItem("cart", JSON.stringify(cart));
 
     getCart();
@@ -103,16 +101,16 @@ const CartContextProvider = ({ children }) => {
     });
   }
 
-  const changeProductCount = (count, id) => {
+  const changeSpecsCount = (count, id) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.products = cart.products.map((product) => {
+    cart.specs = cart.specs.map((product) => {
       if (product.item.id === id) {
         product.count = count;
         product.subPrice = calcSubPrice(product);
       }
       return product;
     });
-    cart.totalPrice = calcTotalPrice(cart.products);
+    cart.totalPrice = calcTotalPrice(cart.specs);
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch({
       type: CART.GET_CART,
@@ -120,15 +118,15 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  function checkProductInCart(id) {
+  function checkSpecsInCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     if (cart) {
-      let newCart = cart.products.filter((elem) => elem.item.id === id);
+      let newCart = cart.specs.filter((elem) => elem.item.id === id);
       return newCart.length > 0 ? true : false;
     } else {
       cart = {
-        product: [],
+        specs: [],
         totalPrice: 0,
       };
     }
@@ -136,10 +134,10 @@ const CartContextProvider = ({ children }) => {
 
   const values = {
     getCart,
-    addProductToCart,
-    changeProductCount,
-    checkProductInCart,
-    deleteProductInCart,
+    addSpecsToCart,
+    changeSpecsCount,
+    checkSpecsInCart,
+    deleteSpecsInCart,
     cart: state.cart,
   };
 
