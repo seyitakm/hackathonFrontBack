@@ -7,8 +7,7 @@ const CartPage = () => {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <h1
           style={{
-            color: "white",
-            border: "6px dotted teal",
+            color: "black",
             marginBottom: "5%",
             fontFamily: "impact",
             fontSize: "4vw",
