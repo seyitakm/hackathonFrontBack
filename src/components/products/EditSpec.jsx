@@ -21,15 +21,21 @@ const EditSpec = () => {
     getProductDetails,
     oneProduct,
   } = useProducts();
-
   const [spec, setSpec] = useState(oneProduct);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const { id } = useParams();
-
   useEffect(() => {
     getProductDetails(id);
   }, []);
+
+  useEffect(() => {
+    setSpec({
+      ...spec,
+      image: image,
+    });
+  }, [image]);
 
   useEffect(() => {
     setSpec(oneProduct);
@@ -58,7 +64,6 @@ const EditSpec = () => {
   useEffect(() => {
     getCategories(id);
   }, []);
-
   return (
     <>
       <Box
@@ -155,7 +160,7 @@ const EditSpec = () => {
             name="categories"
           >
             {category?.map((item) => (
-              <MenuItem value={item.title} key={item.id} onChange={handleInp}>
+              <MenuItem value={item.id} key={item.id} onChange={handleInp}>
                 {item.title}
               </MenuItem>
             ))}
@@ -165,8 +170,11 @@ const EditSpec = () => {
         <input
           style={{ marginTop: 10 }}
           type="file"
-          name="files"
-          onChange={handleInp}
+          accept="image/png, image/jpeg"
+          name="image"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+          }}
         />
 
         <Button

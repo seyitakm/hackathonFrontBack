@@ -34,16 +34,16 @@ const AboutUserPage = () => {
           </div>
           <div className="sidebar__menu-item">
             <i className="fa fa-university"></i>
-            Balance
+            Мой баланс
             <div className="sidebar__label">800</div>
           </div>
           <div className="sidebar__menu-item">
             <i className="fa fa-bar-chart"></i>
-            Statistics
+            Статистики
           </div>
           <div className="sidebar__menu-item sidebar__menu-item--active">
             <i className="fa fa-cog"></i>
-            Settings
+            Настройки
           </div>
           <div className="sidebar__menu-item">
             <i className="fa fa-suitcase"></i>
@@ -51,33 +51,29 @@ const AboutUserPage = () => {
           </div>
           <div className="sidebar__menu-item">
             <i className="fa fa-envelope-o"></i>
-            Help
+            Помощь
             <div className="sidebar__badge">3</div>
-          </div>
-          <div className="sidebar__menu-item">
-            <i className="fa fa-user-plus"></i>
-            Referals
           </div>
         </div>
         <div className="main">
           <div className="main__header">
-            <h2>Your Settings</h2>
+            <h2>Ваши настройки</h2>
           </div>
           <div className="main__content">
             <div className="main__avatar">
-              <div className="main__avatar--overlay">John Doe</div>
+              <div className="main__avatar--overlay">Доктор кто?</div>
             </div>
             <div className="main__settings-form">
               <div action="#" method="post">
                 {error ? <Alert severity="error">{error}</Alert> : null}
-                <label className="main__input-label">Your name:</label>
+                <label className="main__input-label">username:</label>
                 <input
                   className="main__input"
                   placeholder={username}
                   type="text"
                   disabled
                 />
-                <label className="main__input-label">Your e-mail:</label>
+                <label className="main__input-label">Электронная почта:</label>
                 <input
                   className="main__input"
                   placeholder={user}
@@ -86,19 +82,19 @@ const AboutUserPage = () => {
                   value={email}
                   disabled
                 />
-                <label className="main__input-label">Your old password:</label>
+                <label className="main__input-label">Старый пароль:</label>
                 <input
                   className="main__input"
-                  placeholder="old password"
+                  placeholder="старый пароль"
                   type="password"
                   name="old_password"
                   onChange={(e) => setOldPassword(e.target.value)}
                   value={old_password}
                 />
-                <label className="main__input-label">Your new password:</label>
+                <label className="main__input-label">Новый пароль:</label>
                 <input
                   className="main__input"
-                  placeholder="new password"
+                  placeholder="новый пароль"
                   name="new_password"
                   type="password"
                   onChange={(e) => setNewPassword(e.target.value)}
@@ -106,9 +102,9 @@ const AboutUserPage = () => {
                 />
               </div>
               <button className="btn main__save-button" onClick={handleSave}>
-                Save changes
+                Сохранить
               </button>
-              <button className="btn main__cancel-button">Cancel</button>
+              <button className="btn main__cancel-button">Отмена</button>
             </div>
           </div>
         </div>
