@@ -70,7 +70,7 @@ const AddSpec = () => {
       }}
     >
       <Typography variant="h6" sx={{ m: 2 }}>
-        Add New Person
+        Добавить доктора
       </Typography>
       <TextField
         sx={{ m: 1 }}
