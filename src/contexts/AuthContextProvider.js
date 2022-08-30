@@ -103,6 +103,7 @@ const AuthContextProvider = ({ children }) => {
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
+    localStorage.removeItem("cart");
     setUser("");
     navigate("/login");
   }

@@ -27,7 +27,7 @@ const PriceList = () => {
                 }}
                 className="price-title"
               >
-                Price List
+                Прайс Лист
               </h1>
             </div>
           </Box>
