@@ -22,7 +22,7 @@ const ActivationPage = () => {
               onClick={() => navigate("/login")}
               className="accept signin"
             >
-              Логин
+              Войти
             </button>
             <button onClick={() => navigate("/register")} className="accept">
               Назад

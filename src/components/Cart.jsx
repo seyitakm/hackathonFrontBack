@@ -157,7 +157,7 @@ export default function Cart() {
       </Table>
       <Box sx={{ m: 5 }}>
         <Typography variant="h6" component="div">
-          Total price: {cart?.totalPrice}
+          Итог: {cart?.totalPrice}
           <Button onClick={() => cartCleaner()}>Записаться</Button>
         </Typography>
       </Box>
