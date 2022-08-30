@@ -36,10 +36,11 @@ const EditSpec = () => {
   }, [oneProduct]);
 
   const handleInp = (e) => {
-    if (e.target.name === "image") {
+    if (e.target.name === "file") {
+      console.log(e.target.value);
       setSpec({
         ...spec,
-        [e.target.name]: e.target.file[0],
+        [e.target.name]: e.target.files[0],
       });
     } else if (e.target.name === "categories") {
       setSpec({
@@ -55,7 +56,7 @@ const EditSpec = () => {
   };
 
   useEffect(() => {
-    getCategories(id);
+    getCategories();
   }, []);
 
   return (
@@ -81,7 +82,7 @@ const EditSpec = () => {
           fullWidth
           name="first_name"
           onChange={handleInp}
-          value={spec.first_name}
+          value={spec.first_name || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -91,7 +92,7 @@ const EditSpec = () => {
           fullWidth
           name="last_name"
           onChange={handleInp}
-          value={spec.last_name}
+          value={spec.last_name || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -101,7 +102,7 @@ const EditSpec = () => {
           fullWidth
           name="adress"
           onChange={handleInp}
-          value={spec.adress}
+          value={spec.adress || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -111,7 +112,7 @@ const EditSpec = () => {
           fullWidth
           name="description"
           onChange={handleInp}
-          value={spec.description}
+          value={spec.description || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -121,7 +122,7 @@ const EditSpec = () => {
           fullWidth
           name="experience"
           onChange={handleInp}
-          value={spec.experience}
+          value={spec.experience || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -131,7 +132,7 @@ const EditSpec = () => {
           fullWidth
           name="number"
           onChange={handleInp}
-          value={spec.number}
+          value={spec.number || ""}
         />
         {/* <TextField
           sx={{ m: 1 }}
@@ -153,7 +154,7 @@ const EditSpec = () => {
             name="categories"
           >
             {category?.map((item) => (
-              <MenuItem value={item.title} key={item.id} onChange={handleInp}>
+              <MenuItem value={item.id} key={item.id} onChange={handleInp}>
                 {item.title}
               </MenuItem>
             ))}
@@ -163,7 +164,6 @@ const EditSpec = () => {
         <input
           style={{ marginTop: 10 }}
           type="file"
-          // hidden
           name="file"
           onChange={handleInp}
         />

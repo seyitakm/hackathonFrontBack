@@ -78,10 +78,6 @@ article.tabs section:target h2 {
   z-index: 2;
 }
 
-.tabs-section {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-}
 .tabs-content {
   display: flex;
   justify-content: space-evenly;
