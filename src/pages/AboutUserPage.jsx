@@ -1,5 +1,6 @@
 import { Alert } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../components/Styles/UserSettings.css";
 import { useAuth } from "../contexts/AuthContextProvider";
 
@@ -8,6 +9,8 @@ const AboutUserPage = () => {
   const [email, setEmail] = React.useState("");
   const [old_password, setOldPassword] = React.useState("");
   const [new_password, setNewPassword] = React.useState("");
+
+  const navigate = useNavigate();
 
   function handleSave() {
     let formData = new FormData();
@@ -104,7 +107,13 @@ const AboutUserPage = () => {
               <button className="btn main__save-button" onClick={handleSave}>
                 Сохранить
               </button>
-              <button className="btn main__cancel-button">Отмена</button>
+
+              <button
+                className="btn main__cancel-button"
+                onClick={() => navigate(-1)}
+              >
+                Отмена
+              </button>
             </div>
           </div>
         </div>
