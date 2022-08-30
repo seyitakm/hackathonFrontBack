@@ -25,14 +25,12 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const login = async (formData, email, username) => {
+  const login = async (formData, email) => {
     try {
       const result = await axios.post(`${API}account/login/`, formData);
 
       localStorage.setItem("token", JSON.stringify(result.data));
       localStorage.setItem("email", email);
-      localStorage.setItem("username", username);
-      setUsername(username);
       setUser(email);
       navigate("/");
     } catch (error) {
@@ -40,6 +38,19 @@ const AuthContextProvider = ({ children }) => {
       setError([error.response.data.detail]);
     }
   };
+
+  const username1 = async (id) => {
+    try {
+      await axios.get(`${API}account/users/${id}`);
+      localStorage.setItem("username", username);
+      setUsername(username);
+      console.log(username1);
+    } catch (error) {
+      console.log([error.response.data.detail]);
+      setError([error.response.data.detail]);
+    }
+  };
+
   const forgot_password = async (formData, email) => {
     try {
       const result = await axios.post(
@@ -103,12 +114,9 @@ const AuthContextProvider = ({ children }) => {
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
+    localStorage.removeItem("cart");
     setUser("");
     navigate("/login");
-  }
-  async function checkUser() {
-    let userA = await axios.get(`${API}account/users/username`);
-    localStorage.setItem("userUsername", JSON.stringify(userA.data));
   }
 
   return (
@@ -120,8 +128,8 @@ const AuthContextProvider = ({ children }) => {
         logout,
         setError,
         forgot_password,
-        checkUser,
         change_password,
+        username1,
         error,
         user,
         username,

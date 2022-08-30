@@ -33,6 +33,7 @@
   background: #f9f9f9;
   border: 0;
   border-radius: 10px;
+  width: 40vw;
 }
 
 .contact button.btn {
@@ -80,4 +81,7 @@
 }
 .formC input {
   width: 100%;
+}
+.heading .text-center {
+  width: 40vw;
 }
