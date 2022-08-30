@@ -21,25 +21,33 @@ const EditSpec = () => {
     getProductDetails,
     oneProduct,
   } = useProducts();
-
   const [spec, setSpec] = useState(oneProduct);
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const { id } = useParams();
-
   useEffect(() => {
     getProductDetails(id);
   }, []);
+
+  useEffect(() => {
+    setSpec({
+      ...spec,
+      image: image,
+    });
+  }, [image]);
 
   useEffect(() => {
     setSpec(oneProduct);
   }, [oneProduct]);
 
   const handleInp = (e) => {
-    if (e.target.name === "image") {
+    if (e.target.name === "files") {
+      console.log(e.target.files[0]);
+
       setSpec({
         ...spec,
-        [e.target.name]: e.target.file[0],
+        [e.target.name]: e.target.files[0],
       });
     } else if (e.target.name === "categories") {
       setSpec({
@@ -55,9 +63,8 @@ const EditSpec = () => {
   };
 
   useEffect(() => {
-    getCategories(id);
+    getCategories();
   }, []);
-
   return (
     <>
       <Box
@@ -81,7 +88,7 @@ const EditSpec = () => {
           fullWidth
           name="first_name"
           onChange={handleInp}
-          value={spec.first_name}
+          value={spec.first_name || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -91,7 +98,7 @@ const EditSpec = () => {
           fullWidth
           name="last_name"
           onChange={handleInp}
-          value={spec.last_name}
+          value={spec.last_name || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -101,7 +108,7 @@ const EditSpec = () => {
           fullWidth
           name="adress"
           onChange={handleInp}
-          value={spec.adress}
+          value={spec.adress || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -111,7 +118,7 @@ const EditSpec = () => {
           fullWidth
           name="description"
           onChange={handleInp}
-          value={spec.description}
+          value={spec.description || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -121,7 +128,7 @@ const EditSpec = () => {
           fullWidth
           name="experience"
           onChange={handleInp}
-          value={spec.experience}
+          value={spec.experience || ""}
         />
         <TextField
           sx={{ m: 1 }}
@@ -131,16 +138,17 @@ const EditSpec = () => {
           fullWidth
           name="number"
           onChange={handleInp}
-          value={spec.number}
+          value={spec.number || ""}
         />
         {/* <TextField
           sx={{ m: 1 }}
           id="standard-basic"
-          label="Category"
+          label="Image"
           variant="outlined"
           fullWidth
-          name="categories"
-          value={spec.categories}
+          name="picture"
+          onChange={handleInp}
+          value={spec.image}
         /> */}
         <FormControl sx={{ mt: 1 }} fullWidth>
           <InputLabel id="demo-simple-select-label">Specs</InputLabel>
@@ -153,7 +161,7 @@ const EditSpec = () => {
             name="categories"
           >
             {category?.map((item) => (
-              <MenuItem value={item.title} key={item.id} onChange={handleInp}>
+              <MenuItem value={item.id} key={item.id} onChange={handleInp}>
                 {item.title}
               </MenuItem>
             ))}
@@ -163,10 +171,13 @@ const EditSpec = () => {
         <input
           style={{ marginTop: 10 }}
           type="file"
-          // hidden
-          name="file"
-          onChange={handleInp}
+          accept="image/png, image/jpeg"
+          name="image"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+          }}
         />
+
         <Button
           sx={{
             m: 1,
@@ -193,7 +204,6 @@ const EditSpec = () => {
           Отмена
         </Button>
       </Box>
-      {/* ))} */}
     </>
   );
 };

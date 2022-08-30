@@ -1,6 +1,8 @@
 .card-main-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card_box {
@@ -29,14 +31,14 @@
 
 .card-content h2 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 50px;
+  font-size: 5vh;
   margin: 5%;
   color: #19815a;
 }
 .card-content span {
   display: flex;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 25px;
+  font-size: 1vw;
   margin: 10%;
   color: #19815a;
   text-align: center;
@@ -44,5 +46,62 @@
 .card-content p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: 10%;
-  font-size: 15px;
+  font-size: 2vh;
+}
+.discount-card {
+  display: flex;
+  justify-content: center;
+}
+
+.discount-card-box {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  width: 80vw;
+  height: 50vh;
+}
+.discount-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18%;
+  height: 75%;
+  border: 1px solid #c0bdbd;
+  text-align: center;
+  background-color: #e8f0ec;
+  color: #19815a;
+}
+.discount-card-content:hover {
+  background-color: rgb(28, 113, 82);
+  color: white;
+}
+
+.discount-text {
+  display: flex;
+  justify-content: end;
+}
+.discount:hover {
+  background-color: rgba(243, 114, 8, 0.746);
+  color: white;
+}
+.discount {
+  background-color: rgba(243, 114, 8, 0.746);
+  width: 8vh;
+  height: 3vh;
+  text-align: center;
+  align-items: center;
+}
+.discount-card-content p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 3vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.discount-card-content button {
+  background-color: #455191;
+  width: 30%;
+  height: 10%;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
 }

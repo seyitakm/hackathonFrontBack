@@ -184,6 +184,7 @@ const SpecialtiesContextProvider = ({ children }) => {
       const Authorization = `Bearer ${token.access}`;
       const config = {
         headers: {
+          "Content-Type": "multipart/form-data",
           Authorization,
         },
       };
