@@ -67,18 +67,18 @@ export default function Cart() {
       >
         <TableHead sx={{ width: "100%" }}>
           <TableRow>
-            <StyledTableCell sx={trHeadStyle}>Picture</StyledTableCell>
+            <StyledTableCell sx={trHeadStyle}>Фото</StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Name
+              Имя
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Last Name
+              Фамилия
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Description
+              Описание
             </StyledTableCell>
             <StyledTableCell sx={trHeadStyle} align="right">
-              Experience
+              Опыт
             </StyledTableCell>
             <StyledTableCell
               sx={
@@ -91,7 +91,7 @@ export default function Cart() {
               }
               align="right"
             >
-              Number
+              Номер
             </StyledTableCell>
 
             <StyledTableCell sx={trHeadStyle} align="right">

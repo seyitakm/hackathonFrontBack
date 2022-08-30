@@ -25,7 +25,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const { user, logout, checkAuth } = useAuth();
+  const { user, logout, checkAuth, username1 } = useAuth();
   const { checkSpecsInCart } = useCart();
 
   const navigate = useNavigate();
@@ -259,7 +259,7 @@ const Navbar = () => {
           </Search>
           {user ? (
             <Box sx={{ flexGrow: 0, ml: 2 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="О себе">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton>
@@ -281,11 +281,15 @@ const Navbar = () => {
                 onClose={handleCloseUserMenu}
               >
                 {user == "beksbor05@gmail.com" ||
-                user == "seyit200020@gmail.com" ? (
+                user == "seyit200020@gmail.com" ||
+                user == "admin@gmail.com" ? (
                   <div>
                     <Typography
                       sx={{ alignSelf: "center", cursor: "pointer" }}
-                      onClick={() => navigate("/user")}
+                      onClick={() => {
+                        navigate("/user");
+                        username1();
+                      }}
                     >
                       {user}
                     </Typography>
