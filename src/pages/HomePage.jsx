@@ -1,4 +1,5 @@
 import React from "react";
+import CardHome from "../components/CardHome";
 
 import Footer from "../components/Footer";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
     <div>
       <SliderHome />
       <TabsHome />
+      <CardHome />
 
       <Footer />
     </div>
