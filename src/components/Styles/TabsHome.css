@@ -88,6 +88,7 @@ article.tabs section:target h2 {
 }
 .tabs-text a {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
   margin: 1vh;
   text-decoration: none;
   color: #424242;
