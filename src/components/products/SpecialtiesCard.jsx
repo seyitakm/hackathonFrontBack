@@ -1,15 +1,18 @@
 import * as React from "react";
-
 import Button from "@mui/material/Button";
-
 import { useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
+import likeBtn from "../icons/like-pngrepo-com.png";
+import favoriteBtn from "../icons/favorite-pngrepo-com.png";
+
+import { Image } from "@mui/icons-material";
+import { Box } from "@mui/system";
 
 export default function SpecialtiesCard({ item }) {
-  const { deleteSpec, editSpec } = useProducts();
+  const { deleteSpec, editSpec, getLike, getFavorite } = useProducts();
   const { addSpecsToCart } = useCart();
   const navigate = useNavigate();
 
@@ -104,6 +107,20 @@ export default function SpecialtiesCard({ item }) {
                   >
                     Записаться
                   </Button>
+                  <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                    <img
+                      src={likeBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getLike(item.id)}
+                    />
+                    <img
+                      src={favoriteBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getFavorite(item.id)}
+                    />
+                  </Box>
                 </div>
               ) : (
                 <>
@@ -126,6 +143,20 @@ export default function SpecialtiesCard({ item }) {
                   >
                     Записаться
                   </Button>
+                  <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                    <img
+                      src={likeBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getLike(item.id)}
+                    />
+                    <img
+                      src={favoriteBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getFavorite(item.id)}
+                    />
+                  </Box>
                 </>
               )}
             </div>

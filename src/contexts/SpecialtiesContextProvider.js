@@ -11,6 +11,7 @@ const INIT_STATE = {
   pages: 0,
   oneProduct: {},
   category: [],
+  oneComment: {},
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -25,6 +26,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+    case "GET_COMMENT":
+      return { ...state, oneComment: action.payload };
     default:
       return state;
   }
@@ -62,6 +65,39 @@ const SpecialtiesContextProvider = ({ children }) => {
     }
   }
 
+  async function getLike(id) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.get(`${API}doctor/toggle_like/${id}/`, config);
+      console.log(res);
+    } catch (error) {
+      console.log([error.response.data.detail]);
+    }
+  }
+  async function getFavorite(id) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.get(
+        `${API}doctor/add_to_favorites/${id}/`,
+        config
+      );
+      console.log(res);
+    } catch (error) {
+      console.log([error.response.data.detail]);
+    }
+  }
   async function getCategories() {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
@@ -199,6 +235,61 @@ const SpecialtiesContextProvider = ({ children }) => {
     }
   }
 
+  async function postComment(formData) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}doctor/comments/`, formData, config);
+      dispatch({
+        type: "GET_COMMENT",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+      console.log([error.response.data.detail]);
+    }
+  }
+  async function editComment(formData, id) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(
+        `${API}doctor/comments/${id}`,
+        formData,
+        config
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      console.log([error.response.data.detail]);
+    }
+  }
+  async function deleteComment(id) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API}doctor/comments/${id}`, config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+      console.log([error.response.data.detail]);
+    }
+  }
   return (
     <specialtiesContext.Provider
       value={{
@@ -208,10 +299,16 @@ const SpecialtiesContextProvider = ({ children }) => {
         deleteSpec,
         saveEditedProduct,
         getProductDetails,
+        getLike,
+        getFavorite,
+        postComment,
+        editComment,
+        deleteComment,
         oneProduct: state.oneProduct,
         specs: state.specs,
         pages: state.pages,
         category: state.category,
+        oneComment: state.oneComment,
       }}
     >
       {children}

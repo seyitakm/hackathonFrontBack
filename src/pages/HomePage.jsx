@@ -1,5 +1,5 @@
 import React from "react";
-import CUsComponent from "../components/CUsComponent";
+import CardHome from "../components/CardHome";
 import Footer from "../components/Footer";
 import SliderHome from "../components/SliderHome";
 import TabsHome from "../components/TabsHome";
@@ -9,6 +9,7 @@ const HomePage = () => {
     <div>
       <SliderHome />
       <TabsHome />
+      <CardHome />
       <Footer />
     </div>
   );
