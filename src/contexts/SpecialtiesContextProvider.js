@@ -11,6 +11,8 @@ const INIT_STATE = {
   pages: 0,
   oneProduct: {},
   category: [],
+  // specMore: {},
+
   oneComment: {},
 };
 
@@ -20,14 +22,19 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         specs: action.payload.results,
-        pages: Math.ceil(action.payload.count / 3),
+        pages: Math.ceil(action.payload.count / 7),
       };
     case "GET_CATEGORIES":
       return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+
+    // case "GET_SPEC_MORE":
+    //   return { ...state, specMore: action.payload };
+
     case "GET_COMMENT":
       return { ...state, oneComment: action.payload };
+
     default:
       return state;
   }
