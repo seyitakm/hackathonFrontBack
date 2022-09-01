@@ -5,16 +5,19 @@ import SpecialtiesContextProvider from "./contexts/SpecialtiesContextProvider";
 import CartContextProvider from "./contexts/CartContextProvider";
 
 import "../src/components/Styles/HomePage.css";
+import ContactUsContext from "./contexts/ContactUsContext";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
         <SpecialtiesContextProvider>
-          <CartContextProvider>
-            <Navbar />
-            <MainRoutes />
-          </CartContextProvider>
+          <ContactUsContext>
+            <CartContextProvider>
+              <Navbar />
+              <MainRoutes />
+            </CartContextProvider>
+          </ContactUsContext>
         </SpecialtiesContextProvider>
       </AuthContextProvider>
     </>
