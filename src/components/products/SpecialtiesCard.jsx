@@ -1,17 +1,31 @@
 import * as React from "react";
-
 import Button from "@mui/material/Button";
-
 import { useParams } from "react-router-dom";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
+import likeBtn from "../icons/like-pngrepo-com.png";
+import favoriteBtn from "../icons/favorite-pngrepo-com.png";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import StarIcon from "@mui/icons-material/Star";
+import { Box } from "@mui/system";
+import { useState } from "react";
 
 export default function SpecialtiesCard({ item }) {
-  const { deleteSpec, editSpec } = useProducts();
+  const { deleteSpec, editSpec, getLike, getFavorite } = useProducts();
   const { addSpecsToCart } = useCart();
   const navigate = useNavigate();
+
+  const [color, setColor] = useState({});
+  const [starColor, setStarColor] = useState({});
+  const handleColor = () => {
+    color.color ? setColor({}) : setColor({ color: "red" });
+  };
+
+  const handleStar = () => {
+    starColor.starColor ? setStarColor({}) : setStarColor({ color: "yellow" });
+  };
 
   const { id } = useParams();
 
@@ -88,7 +102,7 @@ export default function SpecialtiesCard({ item }) {
                   <Button
                     style={{ marginTop: 5 }}
                     size="small"
-                    onClick={() => navigate("/details")}
+                    onClick={() => navigate(`/details/${item.id}`)}
                     className="btn-more"
                   >
                     Узнать Больше
@@ -104,13 +118,41 @@ export default function SpecialtiesCard({ item }) {
                   >
                     Записаться
                   </Button>
+                  <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                    {/* <img
+                      src={likeBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getLike(item.id)}
+                    /> */}
+                    <FavoriteIcon
+                      sx={color}
+                      onClick={() => {
+                        getLike(item.id);
+                        handleColor();
+                      }}
+                    />
+                    {/* <img
+                      src={favoriteBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getFavorite(item.id)}
+                    /> */}
+                    <StarIcon
+                      sx={starColor}
+                      onClick={() => {
+                        getFavorite(item.id);
+                        handleStar();
+                      }}
+                    />
+                  </Box>
                 </div>
               ) : (
                 <>
                   <Button
                     style={{ marginTop: 5 }}
                     size="small"
-                    onClick={() => navigate("/details")}
+                    onClick={() => navigate(`/details/${item.id}`)}
                     className="btn-more"
                   >
                     Узнать Больше
@@ -126,6 +168,34 @@ export default function SpecialtiesCard({ item }) {
                   >
                     Записаться
                   </Button>
+                  <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+                    {/* <img
+                      src={likeBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getLike(item.id)}
+                    /> */}
+                    <FavoriteIcon
+                      sx={color}
+                      onClick={() => {
+                        getLike(item.id);
+                        handleColor();
+                      }}
+                    />
+                    {/* <img
+                      src={favoriteBtn}
+                      alt="j"
+                      style={{ width: "15px", height: "15px" }}
+                      onClick={() => getFavorite(item.id)}
+                    /> */}
+                    <StarIcon
+                      sx={starColor}
+                      onClick={() => {
+                        getFavorite(item.id);
+                        handleStar();
+                      }}
+                    />
+                  </Box>
                 </>
               )}
             </div>

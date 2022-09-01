@@ -31,10 +31,11 @@
 
 .card-content h2 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 5vh;
+  font-size: 40px;
   margin: 5%;
   color: #19815a;
 }
+
 .card-content span {
   display: flex;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

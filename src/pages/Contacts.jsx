@@ -7,6 +7,7 @@ import CUsComponent from "../components/CUsComponent";
 const Contacts = () => {
   const navigate = useNavigate();
   const position = [42.82881661578283, 74.58419582287019];
+
   return (
     <div>
       <div className="clinic-name">"BishClinic+"</div>;
