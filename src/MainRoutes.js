@@ -38,7 +38,7 @@ const MainRoutes = () => {
       <Route path="/services" element={<Services />} />
       <Route path="/pricelist" element={<PriceList />} />
       <Route path="/contacts" element={<Contacts />} />
-      <Route path="/details" element={<SpecDetails />} />
+      <Route path="/details/:id" element={<SpecDetails />} />
       <Route path="/schedule" element={<DoctorsSchedule />} />
       <Route path="/cart" element={<CartPage />} />
 

@@ -245,6 +245,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}doctor/comments/`, formData, config);
+      console.log(res.data);
       dispatch({
         type: "GET_COMMENT",
         payload: res.data,
