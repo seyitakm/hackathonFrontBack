@@ -1,13 +1,11 @@
 import React from "react";
 import "./Styles/SliderHome.css";
+import image1 from "./icons/image1.png";
 
 const SliderHome = () => {
   return (
     <image-carousel interval="5e3">
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2016/11/08/05/29/surgery-1807541__340.jpg"
-      />
+      <img slot="image" src={image1} />
       <img
         slot="image"
         src="https://cdn.pixabay.com/photo/2016/11/14/03/05/surgery-1822458__340.jpg"

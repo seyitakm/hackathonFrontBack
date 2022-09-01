@@ -88,7 +88,7 @@ export default function SpecialtiesCard({ item }) {
                   <Button
                     style={{ marginTop: 5 }}
                     size="small"
-                    onClick={() => navigate("/details")}
+                    onClick={() => navigate(`/details/${item.id}`)}
                     className="btn-more"
                   >
                     Узнать Больше
@@ -110,7 +110,7 @@ export default function SpecialtiesCard({ item }) {
                   <Button
                     style={{ marginTop: 5 }}
                     size="small"
-                    onClick={() => navigate("/details")}
+                    onClick={() => navigate(`/details/${item.id}`)}
                     className="btn-more"
                   >
                     Узнать Больше

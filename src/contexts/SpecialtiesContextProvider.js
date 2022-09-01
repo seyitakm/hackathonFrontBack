@@ -11,6 +11,7 @@ const INIT_STATE = {
   pages: 0,
   oneProduct: {},
   category: [],
+  // specMore: {},
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -25,6 +26,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+    // case "GET_SPEC_MORE":
+    //   return { ...state, specMore: action.payload };
     default:
       return state;
   }
