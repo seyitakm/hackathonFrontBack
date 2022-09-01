@@ -299,7 +299,9 @@ const Navbar = () => {
                     </MenuItem>
 
                     <MenuItem onClick={logout}>
-                      <Typography textAlign="center">Выход</Typography>
+                      <Typography textAlign="center" sx={{ color: "red" }}>
+                        Выход
+                      </Typography>
                     </MenuItem>
                   </div>
                 ) : (
@@ -311,7 +313,9 @@ const Navbar = () => {
                       {user}
                     </Typography>
                     <MenuItem onClick={logout}>
-                      <Typography textAlign="center">Выход</Typography>
+                      <Typography textAlign="center" sx={{ color: "red" }}>
+                        Выход
+                      </Typography>
                     </MenuItem>
                   </div>
                 )}

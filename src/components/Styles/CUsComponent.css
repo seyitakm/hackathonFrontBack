@@ -43,7 +43,10 @@
   background: #ff9100;
   color: #ffffff;
 }
-
+.contact button.btn:hover {
+  background-color: #ce8b34;
+  color: white;
+}
 .contact .title h3 {
   font-size: 18px;
   font-weight: 600;
