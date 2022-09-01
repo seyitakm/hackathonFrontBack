@@ -74,7 +74,7 @@ const CardHome = () => {
             <div className="discount-text">
               <div className="discount">Акции</div>
             </div>
-            <p>Предновогодняя акция на посещение соляной пещеры</p>
+            <p>Акция при покупке абонемента в соляную комнату</p>
             <button>Подробно</button>
           </div>
         </div>
