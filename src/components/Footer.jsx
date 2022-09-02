@@ -32,7 +32,7 @@ const Footer = () => {
                 <a href="">
                   <img src={whatsapp_icon} alt="" />
                 </a>
-                <a href="">
+                <a href="https://t.me/BishClinic_medicines_bot">
                   <img src={telegram_icon} alt="" />
                 </a>
                 <a href="">

@@ -257,7 +257,7 @@ const SpecialtiesContextProvider = ({ children }) => {
     }
   }
 
-  async function postComment(formData) {
+  async function postComment(formData, id) {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;

@@ -3,7 +3,6 @@ import React from "react";
 const NotFoundPage = () => {
   return (
     <div>
-      Not Found 404
       <section className="page_404">
         <div className="container">
           <div className="row">

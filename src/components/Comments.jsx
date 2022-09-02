@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../contexts/SpecialtiesContextProvider";
 import "./Styles/Comments.css";
 
 const Comments = () => {
-  const { postComment, editComment, deleteComment } = useProducts();
+  const { postComment } = useProducts();
   const [body, setBody] = useState();
   const { id } = useParams();
 
@@ -17,8 +18,9 @@ const Comments = () => {
     let formData = new FormData();
     formData.append("body", body);
     formData.append("doctor", id);
-    postComment(formData);
+    postComment(formData, id);
   }
+
   //   function handleDelete(id) {
   //     deleteComment.id;
   //   }
@@ -46,9 +48,9 @@ const Comments = () => {
             <div className="comment__post">
               {/* <div className="comment__info">Some HTML is OK.</div> */}
               <div>
-                <button className="comment__send" onClick={handleSave}>
+                <Button className="comment__send" onClick={handleSave}>
                   Отправить
-                </button>
+                </Button>
                 <div></div>
               </div>
             </div>

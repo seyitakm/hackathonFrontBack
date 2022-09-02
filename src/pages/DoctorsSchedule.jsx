@@ -46,7 +46,6 @@ export default function DoctorsSchedule() {
     getSpecs();
   }, []);
 
-  console.log(specs);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
