@@ -60,7 +60,7 @@ const AboutUserPage = () => {
             <div className="sidebar__badge">3</div>
           </div>
         </div>
-        <div className="main">
+        <div className="mainSettings">
           <div className="main__header">
             <h2>Ваши настройки</h2>
           </div>

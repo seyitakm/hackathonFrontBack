@@ -64,7 +64,7 @@
   background: #8ed081;
 }
 
-.main {
+.mainSettings {
   width: 70%;
   vertical-align: top;
   display: inline-block;
@@ -178,7 +178,7 @@
     padding: 15px;
   }
 
-  .main {
+  .mainSettings {
     width: 100%;
     margin: 0;
   }

@@ -8,13 +8,15 @@ import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import Comments from "../Comments";
 import { Box } from "@mui/system";
+import { useAuth } from "../../contexts/AuthContextProvider";
 // import "../../styles/ProductDetails.css";
 
 const SpecDetails = () => {
   const { id } = useParams();
   // console.log(id);
 
-  const { getProductDetails, oneProduct } = useProducts();
+  const { getProductDetails, oneProduct, deleteComment } = useProducts();
+  const { checkAuth } = useAuth();
   const [value, setValue] = React.useState(0);
   // const [com, setCom] = React.useState({});
   const com = [];
@@ -23,13 +25,20 @@ const SpecDetails = () => {
   useEffect(() => {
     getProductDetails(id);
   }, []);
-  // console.log(oneProduct);
 
+  // console.log(oneProduct);
   for (let i in oneProduct.comments) {
     com.push(oneProduct.comments[i]);
   }
+  console.log(oneProduct);
 
-  // console.log(com);
+  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    setOpen((previousOpen) => !previousOpen);
+  };
   return (
     <div
       style={{
@@ -124,14 +133,27 @@ const SpecDetails = () => {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      flexDirection: "column",
+                      // alignItems: "center",
                       width: "80%",
                     }}
+                    key={e.id}
                   >
                     <p style={{ color: "#999" }}>
                       <strong>{e.user}:</strong>
                     </p>
-                    <p style={{ marginLeft: "4%" }}>{e.body}</p>
+                    <p
+                      style={{
+                        marginLeft: "4%",
+                        width: "100%",
+                        height: "80px",
+                        border: "1px solid teal",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      {e.body}
+                    </p>
+                    <button onClick={deleteComment.id}>Delete</button>
                   </div>
                 );
               })}
