@@ -99,11 +99,7 @@ const CUsComponent = () => {
                   value={message}
                 ></textarea>
               </div>
-              <button
-                className="btn btn-block"
-                // type="submit"
-                onClick={sendEmail}
-              >
+              <button className="btn btn-block" onClick={sendEmail}>
                 Отправить!
               </button>
             </div>

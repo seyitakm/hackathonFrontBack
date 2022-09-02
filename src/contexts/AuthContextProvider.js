@@ -10,7 +10,6 @@ const API = "https://makers-clinic.herokuapp.com/";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
-  const [username, setUsername] = useState();
 
   const navigate = useNavigate();
 
@@ -39,17 +38,16 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const username1 = async (id) => {
-    try {
-      await axios.get(`${API}account/users/${id}`);
-      localStorage.setItem("username", username);
-      setUsername(username);
-      console.log(username1);
-    } catch (error) {
-      console.log([error.response.data.detail]);
-      setError([error.response.data.detail]);
-    }
-  };
+  // const username1 = async (id) => {
+  //   try {
+  //     const res = await axios.get(`${API}account/users/username/`);
+  //     console.log(res);
+  //     setUsername(username);
+  //   } catch (error) {
+  //     console.log([error.response.data.detail]);
+  //     setError([error.response.data.detail]);
+  //   }
+  // };
 
   const forgot_password = async (formData, email) => {
     try {
@@ -59,6 +57,7 @@ const AuthContextProvider = ({ children }) => {
       );
       setUser(email);
       navigate("/login");
+      console.log(result);
     } catch (error) {
       console.log([error.response.data.detail]);
       setError([error.response.data.detail]);
@@ -104,8 +103,6 @@ const AuthContextProvider = ({ children }) => {
       );
       let email = localStorage.getItem("email");
       setUser(email);
-      let username = localStorage.getItem("username");
-      setUsername(username);
     } catch (error) {
       logout();
     }
@@ -129,10 +126,9 @@ const AuthContextProvider = ({ children }) => {
         setError,
         forgot_password,
         change_password,
-        username1,
+
         error,
         user,
-        username,
       }}
     >
       {children}

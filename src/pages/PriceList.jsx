@@ -24,6 +24,7 @@ const PriceList = () => {
                 style={{
                   zIndex: "3",
                   position: "absolute",
+                  fontFamily: "Georgia, 'Times New Roman', Times, serif",
                 }}
                 className="price-title"
               >
@@ -382,7 +383,7 @@ const PriceList = () => {
           </Box>
         </Box>
 
-        <Box style={{ marginBottom: 50 }}>
+        {/* <Box style={{ marginBottom: 50 }}>
           <Box className="terapevt">
             <div className="title-terapevt">
               <strong>Ультразвуковое исследование</strong>
@@ -644,8 +645,8 @@ const PriceList = () => {
               </li>
             </ul>
           </Box>
-        </Box>
-        <Box style={{ marginBottom: 50 }}>
+        </Box> */}
+        <Box style={{ marginLeft: 70, marginBottom: 50 }}>
           <Box className="terapevt">
             <div className="title-terapevt">
               <strong>

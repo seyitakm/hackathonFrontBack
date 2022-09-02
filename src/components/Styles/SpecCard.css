@@ -1,14 +1,3 @@
-/* body {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: #444;
-  justify-content: center;
-  align-items: center;
-  font-family: arial;
-} */
-
 .container-card {
   width: 315.9px;
   position: relative;
@@ -24,7 +13,6 @@
 .container-card .card .face {
   width: 300px;
   height: 200px;
-  /* transition: 0.4s; */
 }
 
 .container-card .card .face.face1 {
@@ -48,20 +36,9 @@
   color: #1582e7 !important;
 }
 
-/* transform: translateY(0); */
-/* box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #f0f,
-    inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff,
-    0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff; */
-
 .container-card .card .face.face1 .content {
-  /* opacity: 0.2; */
-  /* transition: 0.5s; */
   text-align: center;
 }
-
-/* .container-card .card:hover .face.face1 .content {
-  
-} */
 
 .container-card .card .face.face1 .content i {
   font-size: 3em;
@@ -75,10 +52,6 @@
   text-align: center;
 }
 
-/* .container-card .card .face.face1 .content a {
-  transition: 0.5s;
-} */
-
 .container-card .card .face.face2 {
   position: relative;
   background: white;
@@ -87,44 +60,20 @@
   align-items: center;
   justify-content: center;
   padding: 35px;
-  /* box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); */
-  /* transform: translateY(-100px); */
 }
-
-/* .container-card .card:hover .face.face2 {
-  transform: translateY(0);
-} */
-
-/* .card:hover {
-} */
 
 .card {
   margin-top: 50px;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
 }
-
-/* .container-card .card .face.face2 .content p,
-a {
-  font-size: 10pt;
-  margin: 0;
-  padding: 0;
-  color: #333;
-} */
-
-/* .container-card .card .face.face2 .content a {
-  text-decoration: none;
-  color: black;
-  box-sizing: border-box;
-  outline: 1px dashed #333;
-  padding: 10px;
-  margin: 15px 0 0;
-  display: inline-block;
-} */
-/* 
-.container-card .card .face.face2 .content a:hover {
-  background: #333;
-  color: whitesmoke;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+/* @media screen and (max-width: 600px) {
+  .card {
+    width: 50px;
+    position: static;
+  }
+  .container-card {
+    width: 100px;
+    position: static;
+  }
 } */

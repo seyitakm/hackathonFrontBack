@@ -41,7 +41,6 @@ const MainRoutes = () => {
       <Route path="/details/:id" element={<SpecDetails />} />
       <Route path="/schedule" element={<DoctorsSchedule />} />
       <Route path="/cart" element={<CartPage />} />
-
       <Route path="/edit/:id" element={<EditSpec />} />
     </Routes>
   );

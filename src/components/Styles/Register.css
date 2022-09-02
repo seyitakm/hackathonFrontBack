@@ -10,12 +10,10 @@
 .bodyRegister {
   width: 100%;
   height: 30vh;
-  /* background: linear-gradient(90deg, #c7c5f4, #776bcc); */
 }
 
 .container {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   min-height: 100vh;
   margin-top: 5%;
@@ -155,12 +153,7 @@
 }
 
 .social-login {
-  /* position: absolute; */
-  /* height: 140px; */
-  /* width: 160px; */
   text-align: center;
-  /* bottom: 0px; */
-  /* right: 0px; */
   color: #fff;
 }
 .social-loginLog {
@@ -217,10 +210,7 @@
   text-align: center;
 }
 .btnChangeP {
-  /* width: 50%; */
   cursor: pointer;
-  /* background-color: #7874bc; */
-  /* border: 2px solid #7c78b8; */
   border-radius: 10px;
   text-align: center;
 }

@@ -9,8 +9,10 @@ const CartPage = () => {
           style={{
             color: "black",
             marginBottom: "5%",
-            fontFamily: "impact",
+            // fontFamily: "impact",
             fontSize: "4vw",
+            fontFamily: "Georgia, 'Times New Roman', Times, serif",
+            fontWeight: "400",
           }}
         >
           Мои Записи

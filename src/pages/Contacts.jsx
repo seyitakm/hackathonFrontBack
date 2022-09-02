@@ -10,7 +10,7 @@ const Contacts = () => {
 
   return (
     <div>
-      <div className="clinic-name">"BishClinic+"</div>;
+      <div className="clinic-name">BishClinic+</div>;
       <div className="Contacts">
         <div style={{ width: "100%" }}>
           <MapContainer

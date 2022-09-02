@@ -6,11 +6,28 @@ import { JSON_API_DOCS } from "../helpers/consts";
 export const specialtiesContext = createContext();
 export const useProducts = () => useContext(specialtiesContext);
 
+// const s = {
+//   adress: "",
+//   categories: [],
+//   comments: [],
+//   description: "",
+//   expirience: "",
+//   first_name: "",
+//   id: null,
+//   image: "",
+//   last_name: "",
+//   likes: null,
+//   number: "",
+//   rating: null,
+//   service_listing: [],
+// };
 const INIT_STATE = {
   specs: [],
   pages: 0,
   oneProduct: {},
   category: [],
+  // specMore: {},
+
   oneComment: {},
 };
 
@@ -20,14 +37,19 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         specs: action.payload.results,
-        pages: Math.ceil(action.payload.count / 3),
+        pages: Math.ceil(action.payload.count / 7),
       };
     case "GET_CATEGORIES":
       return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+
+    // case "GET_SPEC_MORE":
+    //   return { ...state, specMore: action.payload };
+
     case "GET_COMMENT":
       return { ...state, oneComment: action.payload };
+
     default:
       return state;
   }
@@ -245,7 +267,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}doctor/comments/`, formData, config);
-      console.log(res.data);
+      console.log(res);
       dispatch({
         type: "GET_COMMENT",
         payload: res.data,

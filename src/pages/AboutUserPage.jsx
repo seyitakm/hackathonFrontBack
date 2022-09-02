@@ -1,11 +1,13 @@
 import { Alert } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../components/Styles/UserSettings.css";
 import { useAuth } from "../contexts/AuthContextProvider";
+import { useEffect } from "react";
 
 const AboutUserPage = () => {
-  const { change_password, error, setError, user, username } = useAuth();
+  const { change_password, error, setError, user } = useAuth();
+
   const [email, setEmail] = React.useState("");
   const [old_password, setOldPassword] = React.useState("");
   const [new_password, setNewPassword] = React.useState("");
@@ -72,10 +74,11 @@ const AboutUserPage = () => {
                 <label className="main__input-label">username:</label>
                 <input
                   className="main__input"
-                  placeholder={username}
+                  placeholder="username"
                   type="text"
                   disabled
                 />
+
                 <label className="main__input-label">Электронная почта:</label>
                 <input
                   className="main__input"

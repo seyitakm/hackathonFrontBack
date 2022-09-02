@@ -1,6 +1,7 @@
 export const ACTIONS = {
   GET_PRODUCTS: "GET_PRODUCTS",
   GET_PRODUCT_DETAILS: "GET_PRODUCT_DETAILS",
+  GET_SPEC_MORE: "GET_SPEC_MORE",
 };
 
 export const CART = {

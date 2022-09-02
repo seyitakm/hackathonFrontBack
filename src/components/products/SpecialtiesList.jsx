@@ -46,14 +46,6 @@ const SpecialtiesList = () => {
           <SpecialtiesCard key={item.id} item={item} />
         ))}
       </Box>
-      {/* <TextField
-        id="outlined-basic"
-        label="Outlined"
-        variant="outlined"
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      /> */}
       <Box sx={{ mt: 5, display: "flex", justifyContent: "center" }}>
         <Pagination
           count={pages}
