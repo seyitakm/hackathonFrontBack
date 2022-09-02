@@ -10,7 +10,7 @@
   width: 100%;
 
   font-size: 8vh;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Georgia, 'Times New Roman', Times, serif";
   text-align: center;
   justify-content: center;
   margin-top: 50px;
@@ -18,10 +18,8 @@
 .contacts-box {
   display: flex;
   width: 100%;
-  height: 20%;
-
+  /* height: 20%; */
   color: #424242;
-  /* text-align: center; */
   justify-content: center;
   align-items: center;
 }
@@ -30,10 +28,12 @@
 
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
 }
 .contacts-info ul li {
+  font-size: 15px;
   list-style: none;
   margin: 5px;
 }
@@ -42,25 +42,25 @@
   flex-direction: column;
 }
 .btn-contacts {
-  height: 3vw;
-  width: 13vw;
+  height: 25px;
+  width: 159px;
   border-radius: 3vh;
   border: none;
   margin: 5px;
   background-color: #425397;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: large;
+  /* font-size: large; */
   color: #ffff;
 }
 .btn-contacts1 {
-  height: 3vw;
-  width: 13vw;
+  height: 25px;
+  width: 159px;
   border-radius: 3vh;
   border: none;
   margin: 5px;
   background-color: #57a381;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: large;
+  /* font-size: large; */
   color: #ffff;
 }
 .btn-contacts:hover {

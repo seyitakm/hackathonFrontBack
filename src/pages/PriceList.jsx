@@ -24,6 +24,7 @@ const PriceList = () => {
                 style={{
                   zIndex: "3",
                   position: "absolute",
+                  fontFamily: "Georgia, 'Times New Roman', Times, serif",
                 }}
                 className="price-title"
               >

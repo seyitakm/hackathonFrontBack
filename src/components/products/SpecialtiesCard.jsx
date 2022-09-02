@@ -41,7 +41,6 @@ export default function SpecialtiesCard({ item }) {
               src={item.image}
               alt="doc"
             />
-            {/* <i className="fab fa-apple"></i> */}
           </div>
         </div>
         <div className="face face2">
@@ -68,12 +67,10 @@ export default function SpecialtiesCard({ item }) {
             >
               {item.description}
             </p>
-            {/* <h6 style={{ marginTop: 7 }}>Адрес:{item.adress}</h6>
-            <span>Номер:{item.number}</span> */}
+
             <div
               style={{
                 display: "flex",
-                // flexDirection: "row",
                 justifyContent: "center",
               }}
             >
@@ -119,12 +116,6 @@ export default function SpecialtiesCard({ item }) {
                     Записаться
                   </Button>
                   <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                    {/* <img
-                      src={likeBtn}
-                      alt="j"
-                      style={{ width: "15px", height: "15px" }}
-                      onClick={() => getLike(item.id)}
-                    /> */}
                     <FavoriteIcon
                       sx={color}
                       onClick={() => {
@@ -132,12 +123,6 @@ export default function SpecialtiesCard({ item }) {
                         handleColor();
                       }}
                     />
-                    {/* <img
-                      src={favoriteBtn}
-                      alt="j"
-                      style={{ width: "15px", height: "15px" }}
-                      onClick={() => getFavorite(item.id)}
-                    /> */}
                     <StarIcon
                       sx={starColor}
                       onClick={() => {
@@ -149,53 +134,47 @@ export default function SpecialtiesCard({ item }) {
                 </div>
               ) : (
                 <>
-                  <Button
-                    style={{ marginTop: 5 }}
-                    size="small"
-                    onClick={() => navigate(`/details/${item.id}`)}
-                    className="btn-more"
-                  >
-                    Узнать Больше
-                  </Button>
-                  <Button
-                    style={{ marginTop: 5 }}
-                    size="small"
-                    className="btn-more"
-                    onClick={() => {
-                      navigate("/cart");
-                      addSpecsToCart(item);
-                    }}
-                  >
-                    Записаться
-                  </Button>
-                  <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                    {/* <img
-                      src={likeBtn}
-                      alt="j"
-                      style={{ width: "15px", height: "15px" }}
-                      onClick={() => getLike(item.id)}
-                    /> */}
-                    <FavoriteIcon
-                      sx={color}
-                      onClick={() => {
-                        getLike(item.id);
-                        handleColor();
-                      }}
-                    />
-                    {/* <img
-                      src={favoriteBtn}
-                      alt="j"
-                      style={{ width: "15px", height: "15px" }}
-                      onClick={() => getFavorite(item.id)}
-                    /> */}
-                    <StarIcon
-                      sx={starColor}
-                      onClick={() => {
-                        getFavorite(item.id);
-                        handleStar();
-                      }}
-                    />
-                  </Box>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div style={{ display: "flex", flexDirection: "row" }}>
+                      <Button
+                        style={{ marginTop: 5 }}
+                        size="small"
+                        onClick={() => navigate(`/details/${item.id}`)}
+                        className="btn-more"
+                      >
+                        Узнать Больше
+                      </Button>
+                      <Button
+                        style={{ marginTop: 5 }}
+                        size="small"
+                        className="btn-more"
+                        onClick={() => {
+                          navigate("/cart");
+                          addSpecsToCart(item);
+                        }}
+                      >
+                        Записаться
+                      </Button>
+                    </div>
+                    <Box
+                      sx={{ display: "flex", justifyContent: "space-around" }}
+                    >
+                      <FavoriteIcon
+                        sx={color}
+                        onClick={() => {
+                          getLike(item.id);
+                          handleColor();
+                        }}
+                      />
+                      <StarIcon
+                        sx={starColor}
+                        onClick={() => {
+                          getFavorite(item.id);
+                          handleStar();
+                        }}
+                      />
+                    </Box>
+                  </div>
                 </>
               )}
             </div>

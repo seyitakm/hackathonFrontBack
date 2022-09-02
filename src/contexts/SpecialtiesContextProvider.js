@@ -6,6 +6,21 @@ import { JSON_API_DOCS } from "../helpers/consts";
 export const specialtiesContext = createContext();
 export const useProducts = () => useContext(specialtiesContext);
 
+// const s = {
+//   adress: "",
+//   categories: [],
+//   comments: [],
+//   description: "",
+//   expirience: "",
+//   first_name: "",
+//   id: null,
+//   image: "",
+//   last_name: "",
+//   likes: null,
+//   number: "",
+//   rating: null,
+//   service_listing: [],
+// };
 const INIT_STATE = {
   specs: [],
   pages: 0,
@@ -252,6 +267,7 @@ const SpecialtiesContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}doctor/comments/`, formData, config);
+      console.log(res);
       dispatch({
         type: "GET_COMMENT",
         payload: res.data,

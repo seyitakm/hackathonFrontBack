@@ -1,4 +1,4 @@
-.card-main-container {
+/* .card-main-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,4 +105,25 @@
   color: white;
   border-radius: 50%;
   cursor: pointer;
+} */
+.blockUp_h3 {
+  font-size: 80px;
+  color: #19815a;
+}
+.blockUp_h6 {
+  font-size: 20px;
+  color: #19815a;
+}
+.blockUp_p {
+}
+.blockDown_h6 {
+  font-size: 20px;
+  color: #19815a;
+  margin-top: 3%;
+}
+.blockDown_p {
+  margin-top: 3%;
+}
+.blockDown {
+  margin-top: 5%;
 }

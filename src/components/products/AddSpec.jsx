@@ -132,15 +132,7 @@ const AddSpec = () => {
         onChange={handleInp}
         value={product.number}
       />
-      {/* <TextField
-        sx={{ m: 1 }}
-        id="standard-basic"
-        label="Category"
-        variant="outlined"
-        fullWidth
-        name="categories"
-        value={product.categories}
-      /> */}
+
       <FormControl sx={{ mt: 1 }} fullWidth>
         <InputLabel id="demo-simple-select-label">Specs</InputLabel>
         <Select
