@@ -10,6 +10,7 @@ const CardHome = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          paddingTop: "50px",
         }}
       >
         <div className="forWidth" style={{ display: "flex" }}>
@@ -21,23 +22,8 @@ const CardHome = () => {
               justifyContent: "center",
             }}
           >
-            <div
-              className="blockUp"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                width: "90%",
-                justifyContent: "space-between",
-              }}
-            >
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+            <div className="blockUp">
+              <div className="blockUpDiv">
                 <h3 className="blockUp_h3">9</h3>
                 <h6 className="blockUp_h6">лет заботы о здоровье</h6>
                 <p className="blockUp_p">
@@ -45,28 +31,14 @@ const CardHome = () => {
                   услуг
                 </p>
               </div>
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+              <div className="blockUpDiv">
                 <h3 className="blockUp_h3">35+</h3>
                 <h6 className="blockUp_h6">специалистов</h6>
                 <p className="blockUp_p">
                   Готовы оказать медицинскую помощь в клинике
                 </p>
               </div>
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+              <div className="blockUpDiv">
                 <h3 className="blockUp_h3">19</h3>
                 <h6 className="blockUp_h6">направлений</h6>
                 <p className="blockUp_p">
@@ -75,24 +47,8 @@ const CardHome = () => {
                 </p>
               </div>
             </div>
-            <div
-              className="blockDown"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                width: "90%",
-                justifyContent: "space-between",
-                marginBottom: "5%",
-              }}
-            >
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+            <div className="blockDown">
+              <div className="blockDownDiv">
                 <h6 className="blockDown_h6">
                   Диагностика, экспертного класса
                 </h6>
@@ -102,14 +58,7 @@ const CardHome = () => {
                   микробиологические и многие другие.
                 </p>
               </div>
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+              <div className="blockDownDiv">
                 <h6 className="blockDown_h6">
                   Доступные цены на весь спектр услуг
                 </h6>
@@ -118,14 +67,7 @@ const CardHome = () => {
                   году
                 </p>
               </div>
-              <div
-                style={{
-                  width: "30%",
-                  border: "1px solid green",
-                  padding: "10px",
-                  height: "200px",
-                }}
-              >
+              <div className="blockDownDiv">
                 <h6 className="blockDown_h6">
                   Комплексные решения для детей и взрослых
                 </h6>

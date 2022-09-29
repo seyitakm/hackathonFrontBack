@@ -6,28 +6,11 @@ import { JSON_API_DOCS } from "../helpers/consts";
 export const specialtiesContext = createContext();
 export const useProducts = () => useContext(specialtiesContext);
 
-// const s = {
-//   adress: "",
-//   categories: [],
-//   comments: [],
-//   description: "",
-//   expirience: "",
-//   first_name: "",
-//   id: null,
-//   image: "",
-//   last_name: "",
-//   likes: null,
-//   number: "",
-//   rating: null,
-//   service_listing: [],
-// };
 const INIT_STATE = {
   specs: [],
   pages: 0,
   oneProduct: {},
   category: [],
-  // specMore: {},
-
   oneComment: {},
 };
 
@@ -43,10 +26,6 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, category: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
-
-    // case "GET_SPEC_MORE":
-    //   return { ...state, specMore: action.payload };
-
     case "GET_COMMENT":
       return { ...state, oneComment: action.payload };
 
@@ -64,18 +43,9 @@ const SpecialtiesContextProvider = ({ children }) => {
 
   async function getSpecs() {
     try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
       const res = await axios.get(
-        `${JSON_API_DOCS}doctor/${window.location.search}`,
-        config
+        `${JSON_API_DOCS}doctor/${window.location.search}`
       );
-
       console.log(window.location.search);
 
       dispatch({
@@ -214,22 +184,12 @@ const SpecialtiesContextProvider = ({ children }) => {
   }
 
   async function getProductDetails(id) {
-    // console.log(id);
     try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-
-      let res = await axios(`${API}doctor/doctor/${id}/`, config);
+      let res = await axios(`${API}doctor/doctor/${id}/`);
       dispatch({
         type: "GET_ONE_PRODUCT",
         payload: res.data,
       });
-      // console.log(res.data);
       getSpecs();
     } catch (error) {
       console.log(error);

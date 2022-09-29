@@ -3,13 +3,12 @@ import CardHome from "../components/CardHome";
 import Footer from "../components/Footer";
 import SpecialtiesList from "../components/products/SpecialtiesList";
 import SliderHome from "../components/SliderHome";
-import TabsHome from "../components/TabsHome";
 
 const HomePage = () => {
   return (
     <div>
       <SliderHome />
-      <TabsHome />
+      {/* <TabsHome /> */}
       <CardHome />
       <div
         style={{

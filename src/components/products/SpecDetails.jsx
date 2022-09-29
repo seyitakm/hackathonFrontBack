@@ -13,24 +13,17 @@ import { useAuth } from "../../contexts/AuthContextProvider";
 
 const SpecDetails = () => {
   const { id } = useParams();
-  // console.log(id);
-
   const { getProductDetails, oneProduct, deleteComment } = useProducts();
-  const { checkAuth } = useAuth();
   const [value, setValue] = React.useState(0);
-  // const [com, setCom] = React.useState({});
+
   const com = [];
   const navigate = useNavigate();
-  // console.log(com);
   useEffect(() => {
     getProductDetails(id);
   }, []);
-
-  // console.log(oneProduct);
   for (let i in oneProduct.comments) {
     com.push(oneProduct.comments[i]);
   }
-  console.log(oneProduct);
 
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -1,4 +1,4 @@
-.tabs-box {
+/* .tabs-box {
   display: flex;
   flex-wrap: wrap;
 }
@@ -87,9 +87,9 @@ article.tabs section:target h2 {
   flex-direction: column;
 }
 .tabs-text a {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
-  margin: 1vh;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
   text-decoration: none;
   color: #424242;
-}
+  padding: 9px;
+} */

@@ -1,48 +1,55 @@
 import React from "react";
+import ImageSlider from "./ImageSlider";
 import "./Styles/SliderHome.css";
-import image1 from "./icons/image1.png";
+
+const slides = [
+  {
+    url: "https://zdorovie-lab.kg/wp-content/webp-express/webp-images/uploads/2018/09/banner-2.jpg.webp",
+    title: "2",
+  },
+  {
+    url: "https://zdorovie-lab.kg/wp-content/webp-express/webp-images/uploads/2018/09/banner-3.jpg.webp",
+    title: "1",
+  },
+  {
+    url: "https://zdorovie-lab.kg/wp-content/webp-express/webp-images/uploads/2018/09/banner-1.jpg.webp",
+    title: "3",
+  },
+];
+const containerStyles = {
+  width: "100%",
+  height: "450px",
+  margin: "0 auto",
+  transition: "1s",
+};
+const overlaySlide = {
+  width: "50%",
+  position: "absolute",
+  left: 0,
+  top: "64px",
+  height: "450px",
+  zIndex: "1",
+  background: "rgba(255,255,255,0.1)",
+  backdropFilter: "blur(10px)",
+};
 
 const SliderHome = () => {
   return (
-    <image-carousel interval="5e3">
-      <img slot="image" src={image1} />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2016/11/14/03/05/surgery-1822458__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2017/08/06/07/12/dentist-2589771__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2014/12/10/20/56/medical-563427__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2015/07/10/21/00/hospital-840135__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2019/04/03/03/05/medical-equipment-4099428__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2017/06/28/14/03/dental-2450751__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2018/01/18/09/26/equipment-3089883__340.jpg"
-      />
-      <img
-        slot="image"
-        src="https://cdn.pixabay.com/photo/2020/03/14/17/05/virus-4931227__340.jpg"
-      />
-    </image-carousel>
+    <div>
+      <div style={containerStyles}>
+        <ImageSlider slides={slides} />
+        <div style={overlaySlide}>
+          <div className="overlayContent">
+            <h2>Лабораторные исследования</h2>
+            <p>
+              Более 150 видов точных медицинских тестов. Уверенность в каждом
+              результате!
+            </p>
+            <button>Узнать больше</button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

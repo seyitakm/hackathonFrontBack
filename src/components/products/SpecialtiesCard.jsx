@@ -5,8 +5,6 @@ import { useProducts } from "../../contexts/SpecialtiesContextProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
-import likeBtn from "../icons/like-pngrepo-com.png";
-import favoriteBtn from "../icons/favorite-pngrepo-com.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import { Box } from "@mui/system";
@@ -24,7 +22,7 @@ export default function SpecialtiesCard({ item }) {
   };
 
   const handleStar = () => {
-    starColor.starColor ? setStarColor({}) : setStarColor({ color: "yellow" });
+    starColor.color ? setStarColor({}) : setStarColor({ color: "yellow" });
   };
 
   const { id } = useParams();
@@ -39,7 +37,7 @@ export default function SpecialtiesCard({ item }) {
             <img
               style={{ borderRadius: 15, width: "220px", height: "215px" }}
               src={item.image}
-              alt="doc"
+              alt="doctors img"
             />
           </div>
         </div>

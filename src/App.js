@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import SpecialtiesContextProvider from "./contexts/SpecialtiesContextProvider";
 import CartContextProvider from "./contexts/CartContextProvider";
 
-import "../src/components/Styles/HomePage.css";
 import ContactUsContext from "./contexts/ContactUsContext";
 
 function App() {

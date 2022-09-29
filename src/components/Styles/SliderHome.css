@@ -1,17 +1,30 @@
-image-carousel {
-  margin: 1em 10em;
-  box-sizing: border-box;
+.overlayContent {
+  padding: 50px 80px 50px;
 }
-image-carousel > img {
-  width: auto;
-  height: 30em;
-  max-height: calc(100vh - 2em);
+.overlayContent h2 {
+  font-size: 50px;
+  color: white;
+  font-weight: 600;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
-image-carousel::part(controls) {
-  filter: drop-shadow(2px 3px 3px #000a);
-  opacity: 0;
-  transition: opacity 0.3s;
+.overlayContent p {
+  font-size: 17px;
+  margin-top: 4%;
+  font-family: Arial, Helvetica, sans-serif;
 }
-image-carousel:hover::part(controls) {
-  opacity: 0.6;
+.overlayContent button {
+  padding: 20px 50px;
+  margin-top: 4%;
+  border: 2px solid #574fa8;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 35px;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+.overlayContent button:hover {
+  border: 2px solid #574fa8;
+  background-color: #574fa8;
+  color: white;
+  transition: 0.4s;
 }

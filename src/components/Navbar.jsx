@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { Badge, Button, createTheme, Paper } from "@mui/material";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useCart } from "../contexts/CartContextProvider";
-import { useProducts } from "../contexts/SpecialtiesContextProvider";
+// import { useProducts } from "../contexts/SpecialtiesContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -103,7 +103,12 @@ const Navbar = () => {
     <AppBar position="relative" id="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img className="logo1" src={logo} alt="logo" />
+          <img
+            onClick={() => navigate("/")}
+            className="logo1"
+            src={logo}
+            alt="logo"
+          />
 
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
@@ -111,15 +116,14 @@ const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => navigate("/")}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
               textDecoration: "none",
+              cursor: "pointer",
             }}
           >
             BishClinic+
@@ -175,6 +179,10 @@ const Navbar = () => {
               </MenuItem>
               <MenuItem className="navs" onClick={() => navigate("/pricelist")}>
                 <Typography textAlign="center">Прайс Лист</Typography>
+              </MenuItem>
+
+              <MenuItem className="navs" onClick={() => navigate("/login")}>
+                <Typography>Авторизация</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -240,14 +248,6 @@ const Navbar = () => {
             </MenuItem>
           </Box>
 
-          {/* <TextField
-            sx={{ m: 1 }}
-            color="success"
-            id="standard-basic"
-            label="Description"
-            name="Search"
-          /> */}
-
           <Search className="navs-search">
             <SearchIconWrapper>
               <SearchIcon />
@@ -280,19 +280,20 @@ const Navbar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {user == "beksbor05@gmail.com" ||
-                user == "seyit200020@gmail.com" ||
+                {user == "seyit200020@gmail.com" ||
                 user == "admin@gmail.com" ? (
                   <div>
-                    <Typography
-                      sx={{ alignSelf: "center", cursor: "pointer" }}
-                      onClick={() => {
-                        navigate("/user");
-                        username1();
-                      }}
-                    >
-                      {user}
-                    </Typography>
+                    <MenuItem>
+                      <Typography
+                        sx={{ alignSelf: "center", cursor: "pointer" }}
+                        onClick={() => {
+                          navigate("/user");
+                          username1();
+                        }}
+                      >
+                        Настройки
+                      </Typography>
+                    </MenuItem>
 
                     <MenuItem onClick={() => navigate("/admin")}>
                       <Typography textAlign="center">Админ</Typography>
@@ -306,12 +307,14 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <div>
-                    <Typography
-                      sx={{ alignSelf: "center", cursor: "pointer" }}
-                      onClick={() => navigate("/user")}
-                    >
-                      {user}
-                    </Typography>
+                    <MenuItem>
+                      <Typography
+                        sx={{ alignSelf: "center", cursor: "pointer" }}
+                        onClick={() => navigate("/user")}
+                      >
+                        Настройки
+                      </Typography>
+                    </MenuItem>
                     <MenuItem onClick={logout}>
                       <Typography textAlign="center" sx={{ color: "red" }}>
                         Выход
@@ -329,12 +332,16 @@ const Navbar = () => {
             </Box>
           ) : (
             <Box sx={{ display: "flex" }}>
-              <Button sx={buttons} onClick={() => navigate("/login")}>
-                Авторизация
-              </Button>
-              <Button sx={buttons} onClick={() => navigate("/register")}>
-                Регистрация
-              </Button>
+              <MenuItem className="navs logreg">
+                <Button sx={buttons} onClick={() => navigate("/login")}>
+                  Авторизация
+                </Button>
+              </MenuItem>
+              <MenuItem className="navs logreg">
+                <Button sx={buttons} onClick={() => navigate("/register")}>
+                  Регистрация
+                </Button>
+              </MenuItem>
             </Box>
           )}
         </Toolbar>
